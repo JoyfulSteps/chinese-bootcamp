@@ -2,7 +2,7 @@
 
 > **Người học:** Lập trình viên, tiếng Anh đọc hiểu tốt, chưa biết tiếng Trung
 > **Thời gian:** 8 tuần (2 tháng) | 4–5 giờ/ngày | Tổng: ~250 giờ
-> **Bắt đầu:** 2026-03-10 (Thứ 2)
+> **Bắt đầu:** 2026-03-10 (Thứ 2)  
 
 ---
 
