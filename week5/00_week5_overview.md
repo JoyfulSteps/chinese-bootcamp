@@ -13,7 +13,7 @@
 | Tech vocab | 40+ thuật ngữ IT chuyên sâu | Đọc hiểu docs TQ |
 | Hán tự | +48 chữ mới | Tổng: **222 chữ** |
 | Ngữ pháp | +2 patterns HSK 3 | Tổng: **26 patterns** |
-| Đọc | 180-200 chữ không Pinyin + GitHub README | Hiểu ≥ 60% |
+| Đọc  | 180-200 chữ không Pinyin + GitHub README | Hiểu ≥ 60% |
 | Nghe | **45 phút/ngày** (tăng từ 15!) | Hiểu ý chính |
 | Nói | Giới thiệu project 1.5 phút | Tech Chinese nói |
 
