@@ -5,7 +5,7 @@ compelete day 1:
     - học từ mới (wo), kết hợp api với pleco để viết chữ tay ✅
     - nghe một cụm từ, pleco or hanzii ✅
     - viết hán tự là gì? viết kiểu gì? làm gì? ✅
-    - bài tập
+    - bài tập ✅
 
 complete day 2:
     - AI tạo giống học ü
