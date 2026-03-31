@@ -1,10 +1,10 @@
 compelete day 1:
-    - video phát âm pinyin - 30p
-    - cách nhớ các phiên âm, bộ thẻ (AI tạo hoặc sẵn có), có phân loại
-    - pleco nghe các từ đó 📱
-    - học từ mới (wo), kết hợp api với pleco để viết chữ tay
-    - nghe một cụm từ, pleco or hanzii
-    - viết hán tự là gì? viết kiểu gì? làm gì?
+    - video phát âm pinyin - 30p ✅
+    - cách nhớ các phiên âm, bộ thẻ (AI tạo hoặc sẵn có), có phân loại ✅
+    - pleco nghe các từ đó 📱 ✅
+    - học từ mới (wo), kết hợp api với pleco để viết chữ tay ✅
+    - nghe một cụm từ, pleco or hanzii ✅
+    - viết hán tự là gì? viết kiểu gì? làm gì? ✅
     - bài tập
 
 complete day 2:
