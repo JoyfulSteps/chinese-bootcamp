@@ -1,0 +1,25 @@
+<!-- ════════ PINYIN PHONETICS — MẶT TRƯỚC ════════ -->
+<div class="card-header">
+    <span class="type-badge">{{Type}}</span>
+    <span class="difficulty-badge">{{Difficulty}}</span>
+</div>
+
+<div class="front-main">
+    <div class="pinyin-hero">{{Pinyin}}</div>
+    <div class="ipa-label">{{IPA}}</div>
+    <div class="category-label">{{Category}}</div>
+
+    <!-- Video clip -->
+    {{#Video_Clip}}
+    <div class="video-player">
+        {{Video_Clip}}
+    </div>
+    {{/Video_Clip}}
+
+    <div class="front-question">
+        Phát âm thế nào?
+        {{#Compare_With}}
+        <br>Khác gì với <span class="compare-sound">{{Compare_With}}</span>?
+        {{/Compare_With}}
+    </div>
+</div>

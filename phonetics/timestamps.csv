@@ -1,0 +1,62 @@
+type,pinyin,note_vi,start,end
+van_mau_don,a,"Mồm há to, lưỡi xuống thấp. Gần giống a tiếng Việt.",0:03,0:13
+van_mau_don,o,"Lưỡi rút về sau, tròn môi. Gần giống uô.",0:13,0:24
+van_mau_don,e,"Lưỡi rút về sau, mồm há vừa. Gần giống ưa.",0:24,0:35
+thanh_dieu,tone1,"Đọc giọng cao và bình bình kéo dài ra",0:40,0:53
+thanh_dieu,tone2,"Đọc giọng từ thấp lên cao",0:53,1:07
+thanh_dieu,tone3,"Giọng đọc từ từ xuống thấp rồi lại lên cao",1:07,1:22
+thanh_dieu,tone4,"Giọng đọc từ cao nhất xuống thấp nhất",1:22,1:36
+van_mau_don,i,"Giống i, hai môi dẹt, kéo dài khóe môi như cười.",2:03,2:09
+van_mau_don,u,"Giống u, tròn môi, lưỡi rút về sau.",2:09,2:18
+van_mau_don,ü,"Giống uy, tròn môi, đầu lưỡi dính răng dưới.",2:18,2:27
+luyen_tap,yi_wu_yu,"Ghép âm yi wu yu",2:27,3:11
+thanh_mau,b,"Giống p tiếng Việt, hai môi khép, bật ra (không bật hơi).",3:15,3:21
+thanh_mau,p,"Giống b nhưng bật hơi mạnh.",3:21,3:29
+thanh_mau,m,"Hai môi khép, luồng khí qua khoang mũi.",3:29,3:37
+thanh_mau,f,"Răng trên tiếp xúc môi dưới, dây thanh không rung.",3:37,3:45
+luyen_tap,bpmf,"Ghép âm ba pa ma fa",3:45,5:06
+thanh_mau,d,"Giống t tiếng Việt. Lưỡi chạm chân răng hàm trên.",5:09,5:18
+thanh_mau,t,"Giống th tiếng Việt, nhưng bật hơi mạnh.",5:18,5:25
+thanh_mau,n,"Giống n, lưỡi chạm chân răng trên.",5:25,5:34
+thanh_mau,l,"Giống l, cong lưỡi.",5:34,5:42
+luyen_tap,dtnl,"Ghép âm da ta na la",5:42,6:43
+thanh_mau,g,"Giống c tiếng Việt.",6:46,6:55
+thanh_mau,k,"Gần giống kh, bật hơi mạnh.",6:55,7:04
+thanh_mau,h,"Giống kh và h, không bật hơi.",7:04,7:16
+luyen_tap,gkh,"Ghép âm ga ka ha gu",7:16,8:24
+thanh_mau,j,"Giống ch, mặt lưỡi thẳng, hạ tự nhiên, không bật hơi.",8:28,8:38
+thanh_mau,q,"Giống j vừa học nhưng bật hơi mạnh.",8:38,8:49
+thanh_mau,x,"Gần giống xi, mặt lưỡi thẳng, hạ tự nhiên.",8:49,8:59
+luyen_tap,jqx,"Ghép âm ji qi xi",8:59,9:50
+thanh_mau,z,"Giống ch, đầu lưỡi cắm mặt sau răng trên, không bật hơi.",9:52,10:03
+thanh_mau,c,"Giống z vừa học nhưng bật hơi mạnh.",10:03,10:13
+thanh_mau,s,"Giống s, đầu lưỡi hơi lùi lại.",10:13,10:22
+luyen_tap,zcs,"Ghép âm za ca sa",10:22,11:17
+thanh_mau,zh,"Giống tr, cong lưỡi, không bật hơi.",11:19,11:28
+thanh_mau,ch,"Giống zh vừa học nhưng bật hơi mạnh.",11:28,11:37
+thanh_mau,sh,"Gần giống sư tiếng Việt, cong lưỡi.",11:37,11:46
+thanh_mau,r,"Giống rư, cong lưỡi, dây thanh không rung.",11:46,11:54
+luyen_tap,zhchshr,"Ghép âm zha cha sha",11:54,13:02
+van_mau_kep,ai,"Gần giống ai tiếng Việt.",13:04,13:13
+van_mau_kep,ei,"Gần giống ây tiếng Việt.",13:13,13:20
+van_mau_kep,ui,"Đọc kéo dài u rồi chuyển sang ei (gần giống uây).",13:20,13:30
+luyen_tap,ai_ei_ui,"Ghép âm bai pei tui",13:30,15:45
+van_mau_kep,ao,"Đọc kéo dài a rồi chuyển sang o.",15:49,15:56
+van_mau_kep,ou,"Gần giống âu.",15:56,16:06
+van_mau_kep,iu,"Đọc i chuyển sang ou (gần giống yêu).",16:06,16:17
+luyen_tap,ao_ou_iu,"Ghép âm bao pou miu",16:17,17:50
+van_mau_kep,ie,"Kéo dài i rồi chuyển sang ê.",17:53,18:00
+van_mau_kep,üe,"Kéo dài uy rồi chuyển sang ê.",18:00,18:08
+van_mau_kep,er,"Đọc ơ rồi thêm âm r cong lưỡi.",18:08,18:15
+luyen_tap,ie_ue_er,"Ghép âm bie yue",18:15,18:57
+van_mau_mui,an,"Gần giống an.",18:59,19:05
+van_mau_mui,en,"Gần giống ân.",19:05,19:13
+van_mau_mui,in,"Kéo dài i rồi chuyển sang n (in).",19:13,19:20
+van_mau_mui,un,"Kéo dài u rồi chuyển sang en (uân).",19:20,19:28
+van_mau_mui,ün,"Đọc uyn rồi kéo dài ü, chuyển qua n.",19:28,19:35
+luyen_tap,an_en_in,"Luyện tập âm mũi ban pen min",19:35,21:56
+van_mau_mui,ang,"Giống ang tiếng Việt.",21:59,22:07
+van_mau_mui,eng,"Giống âng.",22:07,22:15
+van_mau_mui,ing,"Giống inh.",22:15,22:23
+van_mau_mui,ong,"Giống ung.",22:23,22:32
+luyen_tap,ang_eng_ing,"Luyện tập bang peng ming",22:32,23:35

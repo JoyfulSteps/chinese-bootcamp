@@ -1,0 +1,94 @@
+<!-- ════════ PINYIN PHONETICS — MẶT SAU ════════ -->
+<div class="card-header">
+    <span class="type-badge">{{Type}}</span>
+    <span class="difficulty-badge">{{Difficulty}}</span>
+</div>
+
+<div class="back-content">
+    <!-- Hero -->
+    <div style="text-align:center;margin-bottom:16px">
+        <div class="pinyin-hero" style="font-size:56px;margin:10px 0 4px">{{Pinyin}}</div>
+        <div class="ipa-label" style="font-size:18px">{{IPA}} · {{Category}}</div>
+    </div>
+
+    <!-- Video -->
+    {{#Video_Clip}}
+    <div class="back-video">
+        {{Video_Clip}}
+        <div class="video-label">🎬 Cô VU HÀ hướng dẫn</div>
+    </div>
+    {{/Video_Clip}}
+
+    <!-- Teacher Quote -->
+    {{#Teacher_Note}}
+    <div class="teacher-quote">
+        <span class="teacher-name">🎤 Cô VU HÀ:</span> "{{Teacher_Note}}"
+    </div>
+    {{/Teacher_Note}}
+
+    <!-- ❌ KHÔNG PHẢI -->
+    {{#Not_This}}
+    <div class="section not-this">
+        <div class="section-header">❌ KHÔNG PHẢI</div>
+        <div class="section-body">{{Not_This}}</div>
+    </div>
+    {{/Not_This}}
+
+    <!-- ✅ THỰC SỰ LÀ -->
+    {{#Actually_Is}}
+    <div class="section actually">
+        <div class="section-header">✅ THỰC SỰ LÀ</div>
+        <div class="section-body">{{Actually_Is}}</div>
+    </div>
+    {{/Actually_Is}}
+
+    <!-- 🏋️ CÁCH LUYỆN -->
+    {{#Practice_Steps}}
+    <div class="section steps">
+        <div class="section-header">🏋️ CÁCH LUYỆN</div>
+        <div class="section-body">{{Practice_Steps}}</div>
+    </div>
+    {{/Practice_Steps}}
+
+    <!-- 🔀 SO SÁNH -->
+    {{#Confusion_Pair}}
+    <div class="section compare">
+        <div class="section-header">🔀 SO SÁNH / DỄ NHẦM</div>
+        <div class="section-body">{{Confusion_Pair}}</div>
+    </div>
+    {{/Confusion_Pair}}
+
+    <!-- 📝 QUY TẮC -->
+    {{#Spelling_Rules}}
+    <div class="section rules">
+        <div class="section-header">📝 QUY TẮC VIẾT</div>
+        <div class="section-body">{{Spelling_Rules}}</div>
+    </div>
+    {{/Spelling_Rules}}
+
+    <!-- 🎯 TỪ MẪU -->
+    {{#Sample_Words}}
+    <div class="section words">
+        <div class="section-header">🎯 TỪ MẪU</div>
+        <div class="section-body">{{Sample_Words}}</div>
+    </div>
+    {{/Sample_Words}}
+
+    <!-- 🧠 TRICK NHỚ -->
+    {{#Mnemonic}}
+    <div class="section trick">
+        <div class="section-header">🧠 TRICK NHỚ</div>
+        <div class="section-body">
+            <div class="trick-box">{{Mnemonic}}</div>
+        </div>
+    </div>
+    {{/Mnemonic}}
+
+    <!-- ⚠️ LỖI PHỔ BIẾN -->
+    {{#Common_Errors}}
+    <div class="section error">
+        <div class="section-header">⚠️ LỖI PHỔ BIẾN</div>
+        <div class="section-body">{{Common_Errors}}</div>
+    </div>
+    {{/Common_Errors}}
+</div>
