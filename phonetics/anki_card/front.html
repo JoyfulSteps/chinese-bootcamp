@@ -1,25 +1,18 @@
 <!-- ════════ PINYIN PHONETICS — MẶT TRƯỚC ════════ -->
-<div class="card-header">
-    <span class="type-badge">{{Type}}</span>
-    <span class="difficulty-badge">{{Difficulty}}</span>
+<div class="ph-header">
+    <span class="badge">{{Type}}</span>
+    <span class="stars">{{Difficulty}}</span>
 </div>
 
-<div class="front-main">
-    <div class="pinyin-hero">{{Pinyin}}</div>
-    <div class="ipa-label">{{IPA}}</div>
-    <div class="category-label">{{Category}}</div>
+<div class="ph-front">
+    <div class="ph-pinyin-big">{{Pinyin}}</div>
+    <div class="ph-ipa">{{IPA}}</div>
+    <div class="ph-cat">{{Category}}</div>
 
-    <!-- Video clip -->
-    {{#Video_Clip}}
-    <div class="video-player">
-        {{Video_Clip}}
-    </div>
-    {{/Video_Clip}}
-
-    <div class="front-question">
+    <div class="ph-question">
         Phát âm thế nào?
         {{#Compare_With}}
-        <br>Khác gì với <span class="compare-sound">{{Compare_With}}</span>?
+        <br>Khác gì với <span class="cmp">{{Compare_With}}</span>?
         {{/Compare_With}}
     </div>
 </div>

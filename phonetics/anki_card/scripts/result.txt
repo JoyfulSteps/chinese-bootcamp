@@ -1,0 +1,24 @@
+﻿Anki Chinese Vocab Sync
+  Source : Mandarin: Vocabulary::a. HSK
+  Target : Chinese Foundation::Day 1 - Dai tu
+  Input  : output
+  AnkiConnect: v6
+  Tim thay 2 file(s)
+
+========================================
+python : Traceback (most recent call last):
+At line:1 char:1
++ python scripts/anki_sync.py --day "Day 1 - Dai tu" --words "我,你" 2>&1 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\Chinese\vocabulary\scripts\anki_sync.py", line 391, in <module>
+    main()
+  File "D:\Chinese\vocabulary\scripts\anki_sync.py", line 382, in main
+    if process_file(f, target_deck, source_deck):
+  File "D:\Chinese\vocabulary\scripts\anki_sync.py", line 242, in process_file
+    print(f"  File: {fname}")
+  File "C:\Users\admin-pc\AppData\Local\Programs\Python\Python310\lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u4f60' in position 8: character maps to <undefined>

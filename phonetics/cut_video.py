@@ -1,10 +1,10 @@
 """
-Cut YouTube video into individual pinyin pronunciation clips.
+Cut local video into individual pinyin pronunciation clips.
 
 Usage:
-    python phonetics/cut_video.py                    # Download + cut all
-    python phonetics/cut_video.py --skip-download    # Cut only (video already downloaded)
-    python phonetics/cut_video.py --sounds "e,ü,zh"  # Cut specific sounds only
+    python phonetics/cut_video.py                       # Cut all sounds
+    python phonetics/cut_video.py --sounds "e,ü,zh"    # Cut specific sounds
+    python phonetics/cut_video.py --include-practice     # Also cut practice sections
 """
 
 import csv
@@ -13,18 +13,13 @@ import sys
 import argparse
 from pathlib import Path
 
-# ══════════════════════════════════
-# CONFIG
-# ══════════════════════════════════
-VIDEO_URL = "https://www.youtube.com/watch?v=XbZ8qqNi_sQ"
 BASE_DIR = Path(__file__).parent
-VIDEO_FILE = BASE_DIR / "vuha_pinyin.mp4"
+VIDEO_FILE = BASE_DIR / "Học phát âm tiếng Trung.mp4"
 CLIPS_DIR = BASE_DIR / "clips"
 TIMESTAMPS_CSV = BASE_DIR / "timestamps.csv"
 
 
 def time_to_seconds(t: str) -> float:
-    """Convert 'M:SS' or 'MM:SS' to seconds."""
     parts = t.strip().split(":")
     if len(parts) == 2:
         return int(parts[0]) * 60 + int(parts[1])
@@ -33,33 +28,8 @@ def time_to_seconds(t: str) -> float:
     return 0
 
 
-def download_video():
-    """Download video from YouTube using yt-dlp."""
-    if VIDEO_FILE.exists():
-        print(f"  [OK] Video already exists: {VIDEO_FILE.name}")
-        return True
-
-    print(f"  Downloading video from YouTube...")
-    cmd = [
-        sys.executable, "-m", "yt_dlp",
-        "-f", "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best",
-        "--merge-output-format", "mp4",
-        "-o", str(VIDEO_FILE),
-        VIDEO_URL,
-    ]
-    result = subprocess.run(cmd, capture_output=False)
-    if result.returncode != 0:
-        print("  [ERR] Download failed!")
-        return False
-    print(f"  [OK] Downloaded: {VIDEO_FILE.name}")
-    return True
-
-
 def cut_clip(pinyin: str, start: str, end: str, clip_type: str):
-    """Cut a single clip from the video using ffmpeg."""
     CLIPS_DIR.mkdir(exist_ok=True)
-
-    # Filename: type_pinyin.mp4
     safe_name = pinyin.replace("ü", "v")
     filename = f"{clip_type}_{safe_name}.mp4"
     output_path = CLIPS_DIR / filename
@@ -79,6 +49,7 @@ def cut_clip(pinyin: str, start: str, end: str, clip_type: str):
         "-t", str(duration),
         "-c:v", "libx264",
         "-c:a", "aac",
+        "-b:a", "128k",
         "-preset", "fast",
         "-crf", "23",
         "-vf", "scale=-2:480",
@@ -88,7 +59,7 @@ def cut_clip(pinyin: str, start: str, end: str, clip_type: str):
 
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
-        print(f"  [ERR] Failed to cut {filename}: {result.stderr[:200]}")
+        print(f"  [ERR] Failed: {filename}: {result.stderr[:200]}")
         return None
 
     size_kb = output_path.stat().st_size / 1024
@@ -98,25 +69,21 @@ def cut_clip(pinyin: str, start: str, end: str, clip_type: str):
 
 def main():
     parser = argparse.ArgumentParser(description="Cut pinyin video clips")
-    parser.add_argument("--skip-download", action="store_true", help="Skip download step")
-    parser.add_argument("--sounds", help="Comma-separated list of sounds to cut (default: all)")
-    parser.add_argument("--include-practice", action="store_true", help="Also cut practice/luyện tập sections")
+    parser.add_argument("--sounds", help="Comma-separated sounds to cut")
+    parser.add_argument("--include-practice", action="store_true")
     args = parser.parse_args()
 
     print("=" * 50)
     print("  Pinyin Video Clip Cutter")
     print("=" * 50)
 
-    # Step 1: Download
-    if not args.skip_download:
-        if not download_video():
-            sys.exit(1)
-    else:
-        if not VIDEO_FILE.exists():
-            print(f"  [ERR] Video not found: {VIDEO_FILE}")
-            sys.exit(1)
+    if not VIDEO_FILE.exists():
+        print(f"  [ERR] Video not found: {VIDEO_FILE}")
+        print(f"  Place 'Học phát âm tiếng Trung.mp4' in phonetics/ folder")
+        sys.exit(1)
 
-    # Step 2: Read CSV
+    print(f"  Video: {VIDEO_FILE.name}")
+
     sounds_filter = None
     if args.sounds:
         sounds_filter = set(s.strip().lower() for s in args.sounds.split(","))
@@ -127,8 +94,7 @@ def main():
         for row in reader:
             rows.append(row)
 
-    # Step 3: Cut clips
-    print(f"\n  Found {len(rows)} entries in timestamps.csv")
+    print(f"  Found {len(rows)} entries in timestamps.csv")
     cut_count = 0
     skip_count = 0
 
@@ -138,12 +104,10 @@ def main():
         start = row["start"].strip()
         end = row["end"].strip()
 
-        # Skip practice sections unless flag set
         if clip_type == "luyen_tap" and not args.include_practice:
             skip_count += 1
             continue
 
-        # Filter specific sounds
         if sounds_filter and pinyin.lower() not in sounds_filter:
             skip_count += 1
             continue
@@ -154,7 +118,7 @@ def main():
 
     print(f"\n{'=' * 50}")
     print(f"  Done! Cut {cut_count} clips, skipped {skip_count}")
-    print(f"  Clips saved to: {CLIPS_DIR}")
+    print(f"  Clips: {CLIPS_DIR}")
 
 
 if __name__ == "__main__":

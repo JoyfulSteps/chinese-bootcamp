@@ -4,14 +4,14 @@ Parse phonetics .md files -> create Note Type -> sync via AnkiConnect.
 
 Usage:
     python phonetics/anki_phonetics_sync.py                        # Sync all
-    python phonetics/anki_phonetics_sync.py --sounds "e,ü,zh"     # Sync specific sounds
-    python phonetics/anki_phonetics_sync.py --create-model-only    # Only create the note type
+    python phonetics/anki_phonetics_sync.py --sounds "e,ü,zh"     # Sync specific
+    python phonetics/anki_phonetics_sync.py --create-model-only    # Only create note type
 """
 
 import sys
 import json
 import re
-import hashlib
+import base64
 import argparse
 import urllib.request
 from pathlib import Path
@@ -25,23 +25,17 @@ MODEL_NAME = "Pinyin Phonetics"
 CLIPS_DIR = Path(__file__).parent / "clips"
 OUTPUT_DIR = Path(__file__).parent / "output"
 
+# Fields in the note type
 FIELDS = [
-    "Pinyin",           # e, ü, zh...
-    "IPA",              # /ɤ/, /y/, /ʈʂ/...
-    "Type",             # Vận mẫu đơn, Thanh mẫu...
-    "Category",         # Nguyên âm đơn (单韵母)
-    "Difficulty",       # ⭐⭐, ⭐⭐⭐
-    "Compare_With",     # u, "e" tiếng Việt
-    "Teacher_Note",     # Quote from teacher
-    "Video_Clip",       # [sound:xxx.mp4]
-    "Not_This",         # HTML
-    "Actually_Is",      # HTML
-    "Practice_Steps",   # HTML
-    "Confusion_Pair",   # HTML
-    "Spelling_Rules",   # HTML
-    "Sample_Words",     # HTML
-    "Mnemonic",         # text
-    "Common_Errors",    # HTML
+    "Pinyin",               # e, ü, zh
+    "IPA",                  # /ɤ/, /y/
+    "Type",                 # Vận mẫu đơn, Thanh mẫu
+    "Category",             # Nguyên âm đơn · 单韵母
+    "Difficulty",           # ⭐⭐, ⭐⭐⭐
+    "Compare_With",         # u, "e" tiếng Việt
+    "Teacher_Note",         # Quote from teacher
+    "Video_Clip",           # [sound:xxx.mp4]
+    "Pronunciation_Guide",  # Full HTML content (md_to_html)
 ]
 
 
@@ -60,12 +54,173 @@ def anki_request(action, **params):
     return result.get("result")
 
 
-# ══════════════════════════════════
+# ============================================================
+# Markdown to HTML (same as anki_sync.py)
+# ============================================================
+
+def inline(text):
+    text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text)
+    text = re.sub(r"\*(.+?)\*", r"<em>\1</em>", text)
+    text = re.sub(r"`(.+?)`", r"<code>\1</code>", text)
+    return text
+
+
+def md_to_html(md_text):
+    lines = md_text.strip().split("\n")
+    html_parts = []
+    in_table = False
+    in_list = False
+    in_sub_list = False
+    table_rows = []
+
+    def is_sep(cells):
+        return all(re.match(r'^[:\-\s]+$', c) for c in cells)
+
+    def flush_table():
+        nonlocal table_rows, in_table
+        if not table_rows:
+            return ""
+        header = table_rows[0]
+        remaining = table_rows[1:]
+        if remaining and is_sep(remaining[0]):
+            remaining = remaining[1:]
+        out = "<table><thead><tr>"
+        for c in header:
+            out += f"<th>{inline(c.strip())}</th>"
+        out += "</tr></thead><tbody>"
+        for row in remaining:
+            out += "<tr>"
+            for c in row:
+                out += f"<td>{inline(c.strip())}</td>"
+            out += "</tr>"
+        out += "</tbody></table>"
+        table_rows = []
+        in_table = False
+        return out
+
+    for line in lines:
+        s = line.strip()
+        raw = line  # keep original indentation for sub-list detection
+
+        # Table
+        if s.startswith("|") and s.endswith("|"):
+            if in_list:
+                html_parts.append("</ul>")
+                in_list = False
+            in_table = True
+            cells = [c for c in s.split("|")[1:-1]]
+            table_rows.append(cells)
+            continue
+        elif in_table:
+            html_parts.append(flush_table())
+
+        # Sub-list (indented with spaces/tabs + - or *)
+        if re.match(r'^    [-*] ', raw) or re.match(r'^\t[-*] ', raw):
+            content = inline(s[2:])
+            if not in_sub_list:
+                html_parts.append("<ul style='margin-left:18px'>")
+                in_sub_list = True
+            html_parts.append(f"<li>{content}</li>")
+            continue
+        elif in_sub_list:
+            html_parts.append("</ul>")
+            in_sub_list = False
+
+        # List
+        if re.match(r"^[-*] ", s):
+            content = inline(s[2:])
+            if not in_list:
+                html_parts.append("<ul>")
+                in_list = True
+            html_parts.append(f"<li>{content}</li>")
+            continue
+        elif in_list:
+            html_parts.append("</ul>")
+            in_list = False
+
+        # Numbered list
+        m = re.match(r'^(\d+)\.\s+(.+)$', s)
+        if m:
+            content = inline(m.group(2))
+            html_parts.append(f"<p><b>{m.group(1)}.</b> {content}</p>")
+            continue
+
+        # Empty line
+        if not s:
+            continue
+
+        # Headers → bold paragraph
+        if s.startswith("#"):
+            text = re.sub(r'^#+\s*', '', s)
+            continue  # Skip headers in phonetics cards
+
+        # Emoji section headers (📍, ❌, ✅, etc.)
+        if re.match(r'^[🎯📍❌✅🏋🧪🔀📝⚠💡🧠👨🎙📊🔑🎭🇫🇷]', s):
+            html_parts.append(f"<h4>{inline(s)}</h4>")
+            continue
+
+        # Regular paragraph
+        html_parts.append(f"<p>{inline(s)}</p>")
+
+    if in_table:
+        html_parts.append(flush_table())
+    if in_sub_list:
+        html_parts.append("</ul>")
+    if in_list:
+        html_parts.append("</ul>")
+    return "\n".join(html_parts)
+
+
+# ============================================================
+# Parse phonetics .md file
+# ============================================================
+
+def parse_phonetics_md(filepath):
+    text = Path(filepath).read_text(encoding="utf-8")
+
+    # Split at ---META---
+    parts = re.split(r'---META---', text, maxsplit=1)
+    main_content = parts[0].strip()
+    meta_text = parts[1].strip() if len(parts) > 1 else ""
+
+    # Parse META
+    meta = {}
+    for line in meta_text.split("\n"):
+        line = line.strip()
+        if ": " in line:
+            k, v = line.split(": ", 1)
+            meta[k.strip()] = v.strip()
+
+    # Convert main content to HTML
+    pronunciation_html = md_to_html(main_content)
+
+    # Build fields
+    fields = {
+        "Pinyin": meta.get("Pinyin", ""),
+        "IPA": meta.get("IPA", ""),
+        "Type": meta.get("Type", ""),
+        "Category": meta.get("Category", ""),
+        "Difficulty": meta.get("Difficulty", ""),
+        "Compare_With": meta.get("Compare_With", ""),
+        "Teacher_Note": meta.get("Teacher_Note", ""),
+        "Pronunciation_Guide": pronunciation_html,
+    }
+
+    # Video clip
+    video_file = meta.get("Video_File", "")
+    if video_file:
+        fields["Video_Clip"] = f"[sound:{video_file}]"
+    else:
+        fields["Video_Clip"] = ""
+
+    return fields, meta
+
+
+# ============================================================
 # Create Note Type
-# ══════════════════════════════════
+# ============================================================
 
 def read_template(filename):
-    """Read HTML template file."""
     template_dir = Path(__file__).parent / "anki_card"
     filepath = template_dir / filename
     if filepath.exists():
@@ -73,13 +228,8 @@ def read_template(filename):
     return ""
 
 
-def create_model():
-    """Create the Pinyin Phonetics note type in Anki."""
-    # Check if model exists
+def create_or_update_model():
     existing = anki_request("modelNames")
-    if MODEL_NAME in existing:
-        print(f"  [OK] Note type '{MODEL_NAME}' already exists")
-        return True
 
     front_html = read_template("front.html")
     back_html = read_template("back.html")
@@ -89,153 +239,103 @@ def create_model():
         print("  [ERR] Template files not found in anki_card/")
         return False
 
+    if MODEL_NAME in existing:
+        # Ensure all required fields exist
+        try:
+            current_fields = anki_request("modelFieldNames", modelName=MODEL_NAME)
+            for f in FIELDS:
+                if f not in current_fields:
+                    anki_request("modelFieldAdd", modelName=MODEL_NAME, fieldName=f, index=len(current_fields))
+                    current_fields.append(f)
+                    print(f"  [OK] Added field: {f}")
+        except Exception as e:
+            print(f"  [WARN] Field update: {e}")
+
+        # Update templates
+        try:
+            anki_request("updateModelTemplates", model={
+                "name": MODEL_NAME,
+                "templates": {"Phonetics Card": {"Front": front_html, "Back": back_html}}
+            })
+        except Exception as e:
+            print(f"  [WARN] Template update: {e}")
+
+        try:
+            anki_request("updateModelStyling", model={"name": MODEL_NAME, "css": css})
+        except Exception as e:
+            print(f"  [WARN] Style update: {e}")
+
+        print(f"  [OK] Updated note type: {MODEL_NAME}")
+        return True
+
+    # Create new
     anki_request("createModel",
         modelName=MODEL_NAME,
         inOrderFields=FIELDS,
-        cardTemplates=[{
-            "Name": "Phonetics Card",
-            "Front": front_html,
-            "Back": back_html,
-        }],
+        cardTemplates=[{"Name": "Phonetics Card", "Front": front_html, "Back": back_html}],
         css=css,
     )
     print(f"  [OK] Created note type: {MODEL_NAME}")
     return True
 
 
-# ══════════════════════════════════
-# Parse .md file
-# ══════════════════════════════════
-
-def parse_phonetics_md(filepath):
-    """Parse a phonetics .md file into field dict."""
-    text = Path(filepath).read_text(encoding="utf-8")
-
-    result = {}
-    sections = {
-        "NOT_THIS": "Not_This",
-        "ACTUALLY_IS": "Actually_Is",
-        "PRACTICE_STEPS": "Practice_Steps",
-        "CONFUSION_PAIR": "Confusion_Pair",
-        "SPELLING_RULES": "Spelling_Rules",
-        "SAMPLE_WORDS": "Sample_Words",
-        "MNEMONIC": "Mnemonic",
-        "COMMON_ERRORS": "Common_Errors",
-        "META": "_meta",
-    }
-
-    # Split by ---SECTION_NAME---
-    parts = re.split(r'---(\w+)---', text)
-
-    i = 1
-    while i < len(parts) - 1:
-        key = parts[i].strip()
-        val = parts[i + 1].strip()
-        field_name = sections.get(key)
-        if field_name:
-            result[field_name] = val
-        i += 2
-
-    # Parse META
-    meta = {}
-    if "_meta" in result:
-        for line in result.pop("_meta").split("\n"):
-            line = line.strip()
-            if ": " in line:
-                k, v = line.split(": ", 1)
-                meta[k.strip()] = v.strip()
-
-    # Map meta to fields
-    result["Pinyin"] = meta.get("Pinyin", "")
-    result["IPA"] = meta.get("IPA", "")
-    result["Type"] = meta.get("Type", "")
-    result["Category"] = meta.get("Category", "")
-    result["Difficulty"] = meta.get("Difficulty", "")
-    result["Compare_With"] = meta.get("Compare_With", "")
-    result["Teacher_Note"] = meta.get("Teacher_Note", "")
-
-    # Video clip
-    video_file = meta.get("Video_File", "")
-    if video_file:
-        result["Video_Clip"] = f"[sound:{video_file}]"
-    else:
-        result["Video_Clip"] = ""
-
-    return result
-
-
-# ══════════════════════════════════
-# Store video clips to Anki media
-# ══════════════════════════════════
+# ============================================================
+# Store media
+# ============================================================
 
 def store_media(video_filename):
-    """Copy video clip to Anki media folder."""
     clip_path = CLIPS_DIR / video_filename
     if not clip_path.exists():
         print(f"  [WARN] Clip not found: {clip_path}")
         return False
 
-    import base64
     data = clip_path.read_bytes()
     b64 = base64.b64encode(data).decode("ascii")
 
-    anki_request("storeMediaFile",
-        filename=video_filename,
-        data=b64,
-    )
+    anki_request("storeMediaFile", filename=video_filename, data=b64)
     size_kb = len(data) / 1024
     print(f"  [OK] Stored media: {video_filename} ({size_kb:.0f}KB)")
     return True
 
 
-# ══════════════════════════════════
+# ============================================================
 # Upsert note
-# ══════════════════════════════════
+# ============================================================
 
 def find_note(pinyin):
-    """Find existing note by Pinyin field."""
-    query = f'"deck:{DECK_NAME}" "Pinyin:{pinyin}"'
-    try:
-        ids = anki_request("findNotes", query=query)
-        if ids:
-            notes = anki_request("notesInfo", notes=ids)
-            if notes:
-                return notes[0]
-    except Exception:
-        pass
-
-    # Broader search
-    query = f'"Pinyin:{pinyin}" "note:{MODEL_NAME}"'
-    try:
-        ids = anki_request("findNotes", query=query)
-        if ids:
-            notes = anki_request("notesInfo", notes=ids)
-            if notes:
-                return notes[0]
-    except Exception:
-        pass
+    for query in [
+        f'"Pinyin:{pinyin}" "note:{MODEL_NAME}"',
+        f'"deck:{DECK_NAME}" "Pinyin:{pinyin}"',
+    ]:
+        try:
+            ids = anki_request("findNotes", query=query)
+            if ids:
+                notes = anki_request("notesInfo", notes=ids)
+                if notes:
+                    return notes[0]
+        except Exception:
+            continue
     return None
 
 
 def process_file(filepath):
-    """Process one .md file → upsert into Anki."""
     fname = Path(filepath).name
     print(f"\n{'=' * 40}")
     print(f"  File: {fname}")
 
-    fields = parse_phonetics_md(filepath)
+    fields, meta = parse_phonetics_md(filepath)
     pinyin = fields.get("Pinyin", "")
 
     if not pinyin:
-        print(f"  [ERR] No Pinyin found in META")
+        print(f"  [ERR] No Pinyin in META")
         return False
 
     print(f"  Pinyin: {pinyin}  Type: {fields.get('Type', '')}")
 
     # Store video clip
-    video_file = fields.get("Video_Clip", "")
-    if video_file:
-        actual_filename = video_file.replace("[sound:", "").replace("]", "")
+    video_ref = fields.get("Video_Clip", "")
+    if video_ref:
+        actual_filename = video_ref.replace("[sound:", "").replace("]", "")
         if actual_filename:
             store_media(actual_filename)
 
@@ -244,21 +344,17 @@ def process_file(filepath):
 
     if existing:
         note_id = existing["noteId"]
-        print(f"  [OK] Found existing note #{note_id} → updating")
-
+        print(f"  [OK] Found existing #{note_id} → updating")
         valid_fields = set(existing["fields"].keys())
         update_fields = {k: v for k, v in fields.items() if k in valid_fields}
-
         anki_request("updateNoteFields", note={"id": note_id, "fields": update_fields})
         print(f"  [OK] Updated {len(update_fields)} fields")
         return True
     else:
         print(f"  [NEW] Creating new note...")
-
-        # Create deck
         anki_request("createDeck", deck=DECK_NAME)
 
-        # Ensure all fields exist
+        # Ensure all fields
         for f in FIELDS:
             if f not in fields:
                 fields[f] = ""
@@ -268,10 +364,7 @@ def process_file(filepath):
                 "deckName": DECK_NAME,
                 "modelName": MODEL_NAME,
                 "fields": fields,
-                "tags": [
-                    f"phonetics",
-                    f"type::{fields.get('Type', '').replace(' ', '_')}",
-                ],
+                "tags": ["phonetics", f"type::{meta.get('Type', '').replace(' ', '_')}"],
             })
             print(f"  [OK] Created note #{result}")
             return True
@@ -280,63 +373,66 @@ def process_file(filepath):
             return False
 
 
-# ══════════════════════════════════
+# ============================================================
 # Main
-# ══════════════════════════════════
+# ============================================================
 
 def main():
     parser = argparse.ArgumentParser(description="Sync Pinyin Phonetics → Anki")
-    parser.add_argument("--sounds", help="Comma-separated sounds to sync (default: all)")
-    parser.add_argument("--input-dir", default=str(OUTPUT_DIR), help="Directory with .md files")
-    parser.add_argument("--create-model-only", action="store_true", help="Only create note type")
+    parser.add_argument("--sounds", help="Comma-separated sounds to sync")
+    parser.add_argument("--input-dir", default=str(OUTPUT_DIR))
+    parser.add_argument("--create-model-only", action="store_true")
     args = parser.parse_args()
 
     print("=" * 50)
     print("  Pinyin Phonetics → Anki Sync")
     print("=" * 50)
 
-    # Check Anki connection
     ver = anki_request("version")
     print(f"  AnkiConnect: v{ver}")
     print(f"  Deck: {DECK_NAME}")
     print(f"  Model: {MODEL_NAME}")
 
-    # Create note type
-    if not create_model():
+    if not create_or_update_model():
         sys.exit(1)
 
     if args.create_model_only:
-        print("\n  Done (model only mode)")
+        print("\n  Done (model only)")
         return
 
-    # Find .md files
     input_dir = Path(args.input_dir)
     if not input_dir.exists():
-        print(f"  [ERR] Directory not found: {input_dir}")
+        print(f"  [ERR] Dir not found: {input_dir}")
         sys.exit(1)
 
     sounds_filter = None
     if args.sounds:
         sounds_filter = set(s.strip().lower() for s in args.sounds.split(","))
 
-    md_files = sorted(input_dir.glob("*.md"))
+    # Only process phonetics .md files (exclude 我_wo.md, 你_ni.md etc.)
+    md_files = []
+    for f in sorted(input_dir.glob("*.md")):
+        # Skip vocab files (they have Hanzi in filename like 我_wo.md)
+        if "_" in f.stem:
+            continue
+        md_files.append(f)
+
     if sounds_filter:
         md_files = [f for f in md_files if f.stem.lower() in sounds_filter]
 
     if not md_files:
-        print("  [WARN] No .md files found")
+        print("  [WARN] No phonetics .md files found")
         sys.exit(1)
 
-    print(f"  Found {len(md_files)} file(s)")
+    print(f"  Found {len(md_files)} phonetics file(s)")
 
-    # Process files
     ok = 0
     for f in md_files:
         if process_file(f):
             ok += 1
 
     print(f"\n{'=' * 50}")
-    print(f"  Done! {ok}/{len(md_files)} synced successfully")
+    print(f"  Done! {ok}/{len(md_files)} synced")
     print(f"  Deck: {DECK_NAME}")
 
 

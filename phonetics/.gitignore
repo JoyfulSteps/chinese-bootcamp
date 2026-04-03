@@ -1,0 +1,12 @@
+# Video files (large)
+*.mp4
+*.mkv
+*.avi
+*.webm
+
+# Cut clips
+clips/
+
+# Python cache
+__pycache__/
+*.pyc
