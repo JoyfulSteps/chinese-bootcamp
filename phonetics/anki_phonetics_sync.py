@@ -175,15 +175,12 @@ def md_to_html(md_text):
 # Parse phonetics .md file
 # ============================================================
 
-def parse_phonetics_md(filepath):
-    text = Path(filepath).read_text(encoding="utf-8")
-
-    # Split at ---META---
-    parts = re.split(r'---META---', text, maxsplit=1)
+def parse_one_sound(text_block):
+    """Parse a single sound block (content + ---META---)."""
+    parts = re.split(r'---META---', text_block, maxsplit=1)
     main_content = parts[0].strip()
     meta_text = parts[1].strip() if len(parts) > 1 else ""
 
-    # Parse META
     meta = {}
     for line in meta_text.split("\n"):
         line = line.strip()
@@ -191,10 +188,8 @@ def parse_phonetics_md(filepath):
             k, v = line.split(": ", 1)
             meta[k.strip()] = v.strip()
 
-    # Convert main content to HTML
     pronunciation_html = md_to_html(main_content)
 
-    # Build fields
     fields = {
         "Pinyin": meta.get("Pinyin", ""),
         "IPA": meta.get("IPA", ""),
@@ -206,14 +201,22 @@ def parse_phonetics_md(filepath):
         "Pronunciation_Guide": pronunciation_html,
     }
 
-    # Video clip
     video_file = meta.get("Video_File", "")
-    if video_file:
-        fields["Video_Clip"] = f"[sound:{video_file}]"
-    else:
-        fields["Video_Clip"] = ""
+    fields["Video_Clip"] = f"[sound:{video_file}]" if video_file else ""
 
     return fields, meta
+
+
+def parse_phonetics_md(filepath):
+    """Parse a .md file. Supports multi-sound files split by ===SOUND===."""
+    text = Path(filepath).read_text(encoding="utf-8")
+
+    # Check for multi-sound file
+    if "===SOUND===" in text:
+        blocks = [b.strip() for b in text.split("===SOUND===") if b.strip()]
+        return [parse_one_sound(b) for b in blocks]
+    else:
+        return [parse_one_sound(text)]
 
 
 # ============================================================
@@ -318,14 +321,9 @@ def find_note(pinyin):
     return None
 
 
-def process_file(filepath):
-    fname = Path(filepath).name
-    print(f"\n{'=' * 40}")
-    print(f"  File: {fname}")
-
-    fields, meta = parse_phonetics_md(filepath)
+def upsert_note(fields, meta):
+    """Create or update a single note in Anki."""
     pinyin = fields.get("Pinyin", "")
-
     if not pinyin:
         print(f"  [ERR] No Pinyin in META")
         return False
@@ -354,7 +352,6 @@ def process_file(filepath):
         print(f"  [NEW] Creating new note...")
         anki_request("createDeck", deck=DECK_NAME)
 
-        # Ensure all fields
         for f in FIELDS:
             if f not in fields:
                 fields[f] = ""
@@ -371,6 +368,21 @@ def process_file(filepath):
         except Exception as e:
             print(f"  [ERR] {e}")
             return False
+
+
+def process_file(filepath):
+    fname = Path(filepath).name
+    print(f"\n{'=' * 40}")
+    print(f"  File: {fname}")
+
+    sound_list = parse_phonetics_md(filepath)
+    print(f"  Contains {len(sound_list)} sound(s)")
+
+    ok = 0
+    for fields, meta in sound_list:
+        if upsert_note(fields, meta):
+            ok += 1
+    return ok
 
 
 # ============================================================
@@ -412,8 +424,9 @@ def main():
     # Only process phonetics .md files (exclude 我_wo.md, 你_ni.md etc.)
     md_files = []
     for f in sorted(input_dir.glob("*.md")):
-        # Skip vocab files (they have Hanzi in filename like 我_wo.md)
-        if "_" in f.stem:
+        # Skip vocab files (they have Hanzi_ pattern like 我_wo.md)
+        stem = f.stem
+        if len(stem) > 1 and "_" in stem and not stem.startswith("batch"):
             continue
         md_files.append(f)
 
@@ -427,12 +440,14 @@ def main():
     print(f"  Found {len(md_files)} phonetics file(s)")
 
     ok = 0
+    total = 0
     for f in md_files:
-        if process_file(f):
-            ok += 1
+        count = process_file(f)
+        ok += count
+        total += 1
 
     print(f"\n{'=' * 50}")
-    print(f"  Done! {ok}/{len(md_files)} synced")
+    print(f"  Done! {ok} notes synced from {total} files")
     print(f"  Deck: {DECK_NAME}")
 
 
