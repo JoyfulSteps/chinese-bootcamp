@@ -1,14 +1,13 @@
-compelete day 1:
-    - video phát âm pinyin - 30p ✅
-    - cách nhớ các phiên âm, bộ thẻ (AI tạo hoặc sẵn có), có phân loại ✅
-    - pleco nghe các từ đó 📱 ✅
-    - học từ mới (wo), kết hợp api với pleco để viết chữ tay ✅
-    - nghe một cụm từ, pleco or hanzii ✅
-    - viết hán tự là gì? viết kiểu gì? làm gì? ✅
-    - bài tập ✅
+- ghi âm: cách cổ điển -> tạm thời chưa mất thời gian vào việc đó ✅ (or Anki group)
+- hanzi
 
-complete day 2:
-    - AI tạo giống học ü
 
-complete day 3:
-    - 
+- flash card linh động cho mọi loại ôn tập
+	+ đưa các nội dung ôn tập mẫu
+	+ card cho ngữ pháp
+	+ có nên AI mở rộng hay chỉ ôn tập
+	+ ôn các chủ điểm quan trọng. sau này đọc docs sâu thì cứ ném một nội dung mới là AI gen và tạo card
+- luyện viết hán tự
+- cụm từ thực hành -> tập trung thay vì lan man
+
+https://www.purpleculture.net/chinese-pinyin-chart/
