@@ -1,0 +1,159 @@
+Day 22 - Trường Học, Học Tập & 正在 (Đang Làm)
+	>> Folder: Truong_Hoc_Hoc_Tap_va_正在_Đang_Lam
+	正在, 学校, 教室, 同学, 考试, 复习, 练习, 作业, 上课, 下课, 黑板, 紧张, 已经
+	(13 tu) | File: week4\01_day1_school.md
+
+Day 23 - Mùa, Lễ Hội & 过 (Trải Nghiệm)
+	>> Folder: Mua_Le_Hoi_va_过_Trai_Nghiem
+	过, 春天, 夏天, 秋天, 冬天, 季节, 节日, 暖和, 凉快, 雪, 刮风, 变, 新年
+	(13 tu) | File: week4\02_day2_seasons.md
+
+Day 24 - Giao Tiếp, Điện Thoại & 能/可以/会 (3 Kiểu "Có Thể")
+	>> Folder: Giao_Tiep_Đien_Thoai_va_能_可以_会_3_Kieu_Co_The
+	能, 可以, 会, 打电话, 手机, 发, 回, 帮, 方便, 问题, 等, 告诉, 接
+	(13 tu) | File: week4\03_day3_communication.md
+
+Day 25 - Hướng, Vị Trí & 把 (Cấu Trúc Xử Lý)
+	>> Folder: Huong_Vi_Tri_va_把_Cau_Truc_Xu_Ly
+	把, 东, 西, 南, 北, 左, 右, 前, 旁边, 对面, 放, 路, 找
+	(13 tu) | File: week4\04_day4_directions.md
+
+Day 26 - Kế Hoạch, Tương Lai & 被 (Bị Động) + 是...的 (Nhấn Mạnh)
+	>> Folder: Ke_Hoach_Tuong_Lai_va_被_Bi_Đong_是_的_Nhan_Manh
+	被, 是...的, 打算, 准备, 希望, 以后, 计划, 决定, 努力, 成功, 进步, 继续, 重要
+	(13 tu) | File: week4\05_day5_plans.md
+
+Day 27 - Review + Giới Thiệu Tech Chinese
+	>> Folder: Review_Gioi_Thieu_Tech_Chinese
+	电脑, 程序, 代码, 软件, 网站, 数据, 服务器, 接口, 框架, 数据库, 部署, 测试, 开发
+	(13 tu) | File: week4\06_day6_tech_intro.md
+
+Day 28 - Ôn Tập Tổng & HSK 2 Mock Test
+	>> Folder: On_Tap_Tong_va_HSK_2_Mock_Test
+	(khong tim thay)
+	(0 tu) | File: week4\07_day7_hsk2_mock.md
+
+Day 29 - Tech — Phần Cứng, Phần Mềm & 除了...以外
+	>> Folder: Tech_Phan_Cung_Phan_Mem_va_除了_以外
+	除了, 以外, 系统, 应用, 编程, 运行, 安装, 下载, 屏幕, 键盘, 语言, 功能, 错误
+	(13 tu) | File: week5\01_day1_tech_hardware.md
+
+Day 30 - Tech — Web, Frontend & Backend
+	>> Folder: Tech_Web_Frontend_va_Backend
+	前端, 后端, 浏览器, 页面, 用户, 登录, 注册, 密码, 请求, 返回, 参数, 链接, 显示
+	(13 tu) | File: week5\02_day2_tech_web.md
+
+Day 31 - Tech — Database & Server Nâng Cao
+	>> Folder: Tech_Database_va_Server_Nang_Cao
+	查询, 连接, 备份, 更新, 删除, 添加, 保存, 修改, 配置, 环境, 性能, 正常, 异常
+	(13 tu) | File: week5\03_day3_tech_database.md
+
+Day 32 - Tech — Git, DevOps & Workflow
+	>> Folder: Tech_Git_DevOps_va_Workflow
+	提交, 分支, 合并, 版本, 发布, 需求, 任务, 进度, 完成, 上线, 创建, 解决, 负责
+	(13 tu) | File: week5\04_day4_tech_git.md
+
+Day 33 - Đọc Bài Tech Thực Tế (Guided Reading) + 不但...而且
+	>> Folder: Đoc_Bai_Tech_Thuc_Te_Guided_Reading_不但_而且
+	不但, 而且, 简单, 复杂, 文档, 项目, 工具, 支持, 技术, 优化, 实现, 方法, 影响
+	(13 tu) | File: week5\05_day5_tech_reading.md
+
+Day 34 - Đời Sống & Xã Hội — Ôn Tổng HSK 3 Prep
+	>> Folder: Đoi_Song_va_Xa_Hoi_On_Tong_HSK_3_Prep
+	经验, 机会, 关系, 活动, 文化, 交流, 了解, 适合, 提高, 丰富, 满意, 紧张, 轻松
+	(13 tu) | File: week5\06_day6_social.md
+
+Day 36 - Đọc Blog Juejin Mẫu + 越来越
+	>> Folder: Đoc_Blog_Juejin_Mau_越来越
+	越来越, 基础, 分享, 选择, 建议, 效率, 团队, 沟通, 能力, 过程, 持续, 跟上, 帮助
+	(13 tu) | File: week6\01_day1_blog_juejin.md
+
+Day 37 - Đọc Blog CSDN Mẫu + 一边...一边
+	>> Folder: Đoc_Blog_CSDN_Mau_一边_一边
+	一边, 面试, 知识, 设计, 概念, 表达, 想法, 优势, 准备, 清楚, 故事, 考, 介绍
+	(13 tu) | File: week6\02_day2_blog_csdn.md
+
+Day 38 - Giao Tiếp Nơi Làm Việc & Email Tiếng Trung
+	>> Folder: Giao_Tiep_Noi_Lam_Viec_va_Email_Tieng_Trung
+	请假, 汇报, 预计, 安排, 联系, 同意, 方案, 讨论, 原因, 计划, 通知, 确认, 随时
+	(13 tu) | File: week6\03_day3_workplace.md
+
+Day 39 - API Docs Tiếng Trung + 对...来说
+	>> Folder: API_Docs_Tieng_Trung_对_来说
+	对...来说, 类型, 成功, 失败, 注意, 示例, 常见, 解决方案, 说明, 有效, 锁定, 传输, 安全
+	(13 tu) | File: week6\04_day4_api_docs.md
+
+Day 40 - Ý Kiến & Tranh Luận Kỹ Thuật
+	>> Folder: Y_Kien_va_Tranh_Luan_Ky_Thuat
+	看法, 不同, 代替, 考虑, 因素, 成本, 熟悉, 决定, 比较, 如果, 虽然, 应该, 认为
+	(13 tu) | File: week6\05_day5_opinions.md
+
+Day 41 - Viết Tech Blog 150+ Chữ & Tổng Hợp
+	>> Folder: Viet_Tech_Blog_150_Chu_va_Tong_Hop
+	内容, 总结, 经历, 感受, 提供, 解释, 例子, 目标, 结果, 发展, 质量, 其他, 最终
+	(13 tu) | File: week6\06_day6_tech_blog.md
+
+Day 42 - Ôn Tập + HSK 3 Mini Test
+	>> Folder: On_Tap_HSK_3_Mini_Test
+	(khong tim thay)
+	(0 tu) | File: week6\07_day7_hsk3_mini.md
+
+Day 43 - Đọc Blog Juejin Thật + 只要...就
+	>> Folder: Đoc_Blog_Juejin_That_只要_就
+	只要, 架构, 拆分, 独立, 通信, 扩展, 压力, 维护, 规模, 处理, 通过, 指南, 单独
+	(13 tu) | File: week7\01_day1_real_blog.md
+
+Day 44 - Mock Interview TQ Chuyên Sâu
+	>> Folder: Mock_Interview_TQ_Chuyen_Sau
+	贡献, 严重, 困难, 强, 弱, 任何, 实际, 适应, 努力, 信心, 希望, 善于, 积累
+	(13 tu) | File: week7\02_day2_interview.md
+
+Day 45 - Viết Tech Blog 250 Chữ + 不管...都
+	>> Folder: Viet_Tech_Blog_250_Chu_不管_都
+	不管, 推荐, 情况, 经常, 改进, 采用, 相关, 特别, 复习, 阶段, 整个, 避免, 根据
+	(13 tu) | File: week7\03_day3_tech_blog_write.md
+
+Day 46 - Code Review Bằng Tiếng Trung
+	>> Folder: Code_Review_Bang_Tieng_Trung
+	逻辑, 变量, 函数, 判断, 导致, 日志, 排查, 验证, 潜在, 缺少, 合理, 具体, 重复
+	(13 tu) | File: week7\04_day4_code_review.md
+
+Day 47 - Đọc GitHub Issues/PRs Tiếng Trung
+	>> Folder: Đoc_GitHub_Issues_PRs_Tieng_Trung
+	描述, 步骤, 预期, 实际, 报错, 模式, 切换, 优先级, 跳转, 解决, 关闭, 合并, 评论
+	(13 tu) | File: week7\05_day5_github_issues.md
+
+Day 48 - Tổng Hợp Ứng Dụng Thực Tế
+	>> Folder: Tong_Hop_Ung_Dung_Thuc_Te
+	(khong tim thay)
+	(0 tu) | File: week7\06_day6_comprehensive.md
+
+Day 50 - Đọc Blog Nâng Cao & Từ Vựng HSK 3
+	>> Folder: Đoc_Blog_Nang_Cao_va_Tu_Vung_HSK_3
+	减少, 明显, 压缩, 资源, 缓存, 策略, 访问, 加载, 体验, 习惯, 保持, 另外, 从而
+	(13 tu) | File: week8\01_day1_advanced_reading.md
+
+Day 51 - Portfolio Prep & Từ Vựng Cuối
+	>> Folder: Portfolio_Prep_va_Tu_Vung_Cuoi
+	实时, 许可, 欢迎, 管理, 通知, 运营, 产品, 客户, 市场, 价值, 增长, 提升, 达到
+	(13 tu) | File: week8\02_day2_600_milestone.md
+
+Day 52 - HSK 3 Full Mock Test (100 Câu)
+	>> Folder: HSK_3_Full_Mock_Test_100_Cau
+	(khong tim thay)
+	(0 tu) | File: week8\03_day3_hsk3_mock.md
+
+Day 53 - Final Mock Interview + Từ Vựng Cuối
+	>> Folder: Final_Mock_Interview_Tu_Vung_Cuoi
+	冷静, 合作, 自信, 态度, 挑战, 责任, 沟通, 详细, 收获, 加班, 薪资, 福利
+	(12 tu) | File: week8\04_day4_final_interview.md
+
+Day 54 - Portfolio — README + Blog TQ
+	>> Folder: Portfolio_README_Blog_TQ
+	(khong tim thay)
+	(0 tu) | File: week8\05_day5_portfolio.md
+
+Day 55 - Tổng Ôn + Fix Weak Points
+	>> Folder: Tong_On_Fix_Weak_Points
+	(khong tim thay)
+	(0 tu) | File: week8\06_day6_review.md
