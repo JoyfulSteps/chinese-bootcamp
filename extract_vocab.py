@@ -22,7 +22,7 @@ import unicodedata
 BOOTCAMP_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Weeks cần quét (week4 trở đi = Day 22+)
-WEEK_DIRS = ["week4", "week5", "week6", "week7", "week8"]
+WEEK_DIRS = ["week1", "week2", "week3", "week4", "week5", "week6", "week7", "week8"]
 
 
 def slugify(text: str) -> str:
@@ -165,7 +165,7 @@ def main():
             fpath = os.path.join(week_path, fname)
             day_num, title_raw, folder_name = parse_day_title(fpath)
 
-            if day_num is None or day_num < 22:
+            if day_num is None or day_num < 1:
                 continue
 
             vocab = extract_vocab_from_file(fpath)
