@@ -1,7 +1,7 @@
 #separator:tab
 #html:false
-#columns:Day,Week,GrammarName,GrammarMeaning,Pattern,Examples,Notes,DevTip,Exercise,Tags
-"Day 3"	"Week 1"	"是字句"	"Câu dùng 是"	"A 是 B (A là B)"	"Công thức:  主语 + 是 + 名词
+#columns:NoteID,Day,Week,GrammarName,GrammarMeaning,Pattern,Examples,Notes,DevTip,Exercise,Tags
+"eed76b5022454b23"	"Day 3"	"Week 1"	"是字句"	"Câu dùng 是"	"A 是 B (A là B)"	"Công thức:  主语 + 是 + 名词
             (Chủ ngữ) + là + (Danh từ)
 
 ⚠️ CHỈ dùng cho DANH TỪ, KHÔNG dùng cho TÍNH TỪ!
@@ -44,7 +44,7 @@ Dịch sang tiếng Trung (dùng 是):
 [Đáp án ẩn]
 
 ---"	"week1::day3::grammar"
-"Day 4"	"Week 1"	"不 vs 没"	"Phủ Định"	"Khi nào dùng 不 vs 没?"	"不 (bù) — Phủ định HIỆN TẠI / TƯƠNG LAI / Ý MUỐN
+"a29c32ed1a6a10b6"	"Day 4"	"Week 1"	"不 vs 没"	"Phủ Định"	"Khi nào dùng 不 vs 没?"	"不 (bù) — Phủ định HIỆN TẠI / TƯƠNG LAI / Ý MUỐN
   ""Tôi KHÔNG muốn...""
   ""Tôi KHÔNG (sẽ) đi...""
   ""Nó KHÔNG tốt...""
@@ -94,7 +94,7 @@ Chọn 不 hay 没:
 [Đáp án ẩn]
 
 ---"	"week1::day4::grammar::comparison"
-"Day 5"	"Week 1"	"Câu Hỏi 吗 + Từ Hỏi"	""	"Thêm 吗 cuối câu (Yes/No question)"	"Quy tắc: Câu khẳng định + 吗？ = Câu hỏi
+"e76f4039e1a1c8ff"	"Day 5"	"Week 1"	"Câu Hỏi 吗 + Từ Hỏi"	""	"Thêm 吗 cuối câu (Yes/No question)"	"Quy tắc: Câu khẳng định + 吗？ = Câu hỏi
 
   你好。     →  你好吗？        Bạn khỏe không?
   他是中国人。→  他是中国人吗？  Anh ấy là người TQ không?
@@ -115,7 +115,7 @@ Chọn 不 hay 没:
 好不好？   hǎo bu hǎo?   Tốt không?
 去不去？   qù bu qù?     Đi không?
 要不要？   yào bu yào?    Muốn không?"	"⚠️ Tiếng Trung KHÔNG đảo ngữ khi hỏi (khác tiếng Anh):"	"3 cách hỏi = 3 query types: `吗` = boolean query, `什么/谁/哪里` = value query, `V不V` = binary choice."	""	"week1::day5::grammar::question"
-"Day 6"	"Week 1"	"几 jǐ vs 多少 duōshao"	""	""	"几 jǐ — hỏi số NHỎ (1–10), dùng với lượng từ
+"1553a7f1f2518266"	"Day 6"	"Week 1"	"几 jǐ vs 多少 duōshao"	""	""	"几 jǐ — hỏi số NHỎ (1–10), dùng với lượng từ
   你几岁？           Nǐ jǐ suì?          Bạn mấy tuổi? (trẻ em)
   几个人？           Jǐ ge rén?           Mấy người?
   几点？             Jǐ diǎn?             Mấy giờ?
@@ -125,7 +125,7 @@ Chọn 不 hay 没:
   你多大？           Nǐ duō dà?           Bao nhiêu tuổi? (người lớn)
   多少钱？           Duōshao qián?         Bao nhiêu tiền?
   多少人？           Duōshao rén?          Bao nhiêu người?"	""	"`几` = `small int` query (expect 1–10). `多少` = `any number` query."	""	"week1::day6::grammar::comparison"
-"Day 8"	"Week 2"	"的 (de) Sở Hữu & Mô Tả"	""	"的 là gì?"	"的 (de) = từ kết nối QUAN TRỌNG NHẤT tiếng Trung
+"d9d5dd05ed52eae7"	"Day 8"	"Week 2"	"的 (de) Sở Hữu & Mô Tả"	""	"的 là gì?"	"的 (de) = từ kết nối QUAN TRỌNG NHẤT tiếng Trung
 Giống ""của"" / ""'s"" nhưng dùng rộng hơn nhiều
 
 3 chức năng chính:
@@ -178,7 +178,7 @@ Dịch sang tiếng Trung:
 [Đáp án ẩn]
 
 ---"	"week2::day8::grammar"
-"Day 9"	"Week 2"	"有 Câu Trúc"	""	"A 有 B (A có B)"	"我有电脑。        Wǒ yǒu diànnǎo.        Tôi CÓ máy tính.
+"401b8e743a7522a7"	"Day 9"	"Week 2"	"有 Câu Trúc"	""	"A 有 B (A có B)"	"我有电脑。        Wǒ yǒu diànnǎo.        Tôi CÓ máy tính.
 他有很多朋友。    Tā yǒu hěn duō péngyou. Anh ấy có nhiều bạn.
 你有手机吗？      Nǐ yǒu shǒujī ma?      Bạn có ĐT không?
 ---
@@ -218,7 +218,7 @@ Trên bàn CÓ một cuốn sách.
 ⚠️ Từ đây, mỗi danh từ cần lượng từ khi đi với số!
 
 ⚠️ 有 đặc biệt: Biểu thị sự tồn tại (ở đâu CÓ gì)"	"Lượng từ giống unit type — `int(5)` vs `float(5)` vs `string(""5"")` — cùng số 5 nhưng type khác nhau. Tiếng Trung cùng ""một"" nhưng cần unit: 一个, 一本, 一杯."	""	"week2::day9::grammar"
-"Day 11"	"Week 2"	"在 Chỉ Vị Trí"	""	"在 có 2 chức năng:"	"1. 在 = Ở (tại nơi nào)
+"84f886c29bbdc385"	"Day 11"	"Week 2"	"在 Chỉ Vị Trí"	""	"在 có 2 chức năng:"	"1. 在 = Ở (tại nơi nào)
    我在家。         Wǒ zài jiā.          Tôi ở nhà.
    他在公司。       Tā zài gōngsī.       Anh ấy ở công ty.
    你在哪里？       Nǐ zài nǎli?         Bạn ở đâu?
@@ -251,7 +251,7 @@ Dưới ghế CÓ 1 con chó:  椅子下有一只狗。 Yǐzi xià yǒu yì zhī
 - `B上 有 A` = B.top.contains(A) → ""trên B có A""
 
 Cùng sự thật nhưng khác perspective — giống `map()` vs `filter()`."	"> - `A 在 B上` = A.location = B.top → ""A ở trên B"""	""	"week2::day11::grammar"
-"Day 12"	"Week 2"	"想 vs 要"	"Muốn"	"想 xiǎng = muốn (nhẹ nhàng, mong muốn)"	"我想喝水。       Wǒ xiǎng hē shuǐ.       Tôi MUỐN uống nước. (nhẹ nhàng)
+"02ae6cc2f41d3169"	"Day 12"	"Week 2"	"想 vs 要"	"Muốn"	"想 xiǎng = muốn (nhẹ nhàng, mong muốn)"	"我想喝水。       Wǒ xiǎng hē shuǐ.       Tôi MUỐN uống nước. (nhẹ nhàng)
 我想去中国。     Wǒ xiǎng qù Zhōngguó.   Tôi MUỐN đi TQ. (mơ ước)
 你想吃什么？     Nǐ xiǎng chī shénme?     Bạn muốn ăn gì? (hỏi ý kiến)
 我想学中文。     Wǒ xiǎng xué Zhōngwén.   Tôi muốn học TQ. (nguyện vọng)
@@ -300,7 +300,7 @@ Chọn 想 hay 要:
 [Đáp án ẩn]
 
 ---"	"week2::day12::grammar::comparison"
-"Day 12"	"Week 2"	"时候"	"Khi nào"	"的时候 = khi.../lúc..."	"吃饭的时候       chī fàn de shíhou        khi ăn cơm
+"7e22d3c988c85be3"	"Day 12"	"Week 2"	"时候"	"Khi nào"	"的时候 = khi.../lúc..."	"吃饭的时候       chī fàn de shíhou        khi ăn cơm
 上班的时候       shàngbān de shíhou       khi đi làm
 学中文的时候     xué Zhōngwén de shíhou   khi học TQ
 我小的时候       wǒ xiǎo de shíhou        khi tôi còn nhỏ
@@ -317,7 +317,7 @@ Ví dụ câu:
 你什么时候去？   Nǐ shénme shíhou qù?      Bạn bao giờ đi?
 你什么时候来？   Nǐ shénme shíhou lái?      Bạn khi nào đến?
 他什么时候回家？ Tā shénme shíhou huí jiā?  Anh ấy bao giờ về nhà?"	""	""	""	"week2::day12::grammar"
-"Day 13"	"Week 2"	"很 + Tính Từ"	""	"主语 + 很 + 形容词"	"❌ SỐNG VÀ CHẾT: ĐỪNG bao giờ nói 是+Adj!
+"b04f192f788c4a68"	"Day 13"	"Week 2"	"很 + Tính Từ"	""	"主语 + 很 + 形容词"	"❌ SỐNG VÀ CHẾT: ĐỪNG bao giờ nói 是+Adj!
 
   ❌ 他是好。    Tā shì hǎo.     (SAI!!)
   ✅ 他很好。    Tā hěn hǎo.     (Anh ấy rất tốt.)
@@ -348,7 +348,7 @@ Khi nói 他很好 thực tế có 2 nghĩa:
 ✅ 我不高兴。    Wǒ bù gāoxìng.          Tôi không vui.
 
 ⚠️ Phủ định → bỏ 很, chỉ dùng 不 + Adj"	"⚠️ Phủ định → bỏ 很, chỉ dùng 不 + Adj"	"`很` giống `default value` — câu tính từ BẮT BUỘC phải có `很` (hoặc từ tương đương) giống function bắt buộc phải return. Nếu không có `很`, câu nghe dang dở."	""	"week2::day13::grammar"
-"Day 13"	"Week 2"	"太...了"	"Quá..."	"Cấu trúc: 太 + Adj + 了"	"太 tài = QUÁ (mức độ cao hơn 很)
+"44bdc26487b0cfd9"	"Day 13"	"Week 2"	"太...了"	"Quá..."	"Cấu trúc: 太 + Adj + 了"	"太 tài = QUÁ (mức độ cao hơn 很)
 
 太好了！       Tài hǎo le!             Quá tốt! / Tuyệt vời!
 太热了！       Tài rè le!              Quá nóng!
@@ -367,7 +367,7 @@ Thang mức độ (từ nhẹ → mạnh):
   太好了    tài hǎo le          quá tốt! tuyệt!
 
   不好 < 还好 < 好 < 很好 < 非常好 < 太好了"	"`DEBUG(不好) < INFO(还好) < WARN(好) < ERROR(很好) < CRITICAL(太好了)`"	"Giống severity levels trong logging:"	""	"week2::day13::grammar::aspect"
-"Day 15"	"Week 3"	"从...到..."	"Từ...đến..."	"从 A 到 B (Từ A đến B — địa điểm)"	"从 + 地点A + 到 + 地点B
+"397ea930b21bdaa6"	"Day 15"	"Week 3"	"从...到..."	"Từ...đến..."	"从 A 到 B (Từ A đến B — địa điểm)"	"从 + 地点A + 到 + 地点B
 cóng          dào
 
 从家到公司          Cóng jiā dào gōngsī         Từ nhà đến công ty
@@ -400,7 +400,7 @@ Bạn từ đâu đến? (= Bạn quê ở đâu?)
 从这里到学校怎么去？ Cóng zhèli dào xuéxiào zěnme qù?
 Từ đây đến trường đi thế nào?
 → 坐公共汽车。      Zuò gōnggòng qìchē.         Đi xe bus."	""	""	""	"week3::day15::grammar"
-"Day 16"	"Week 3"	"比 So Sánh"	""	"A 比 B + Adj"	"比 bǐ = ""hơn"" (so với)
+"d61b3cea4d4baca1"	"Day 16"	"Week 3"	"比 So Sánh"	""	"A 比 B + Adj"	"比 bǐ = ""hơn"" (so với)
 
 A 比 B + Adj = A [adj] hơn B
 
@@ -438,7 +438,7 @@ A 比 B + Adj + 数字 = hơn CỤ THỂ
   Hôm nay không nóng BẰNG hôm qua."	"⚠️ QUY TẮC QUAN TRỌNG: 比 KHÔNG dùng với 很!
 
 ⚠️ KHÔNG nói: A 不比 B (tuy đúng ngữ pháp nhưng ít dùng)"	"`比` giống `>` operator: `A 比 B 高` = `A.height > B.height`. Phủ định `没有那么` = `<=`."	""	"week3::day16::grammar"
-"Day 17"	"Week 3"	"了 Hoàn Thành"	""	"V + 了 = đã V xong"	"了 (le) có 2 chức năng khác nhau. Hôm nay học chức năng 1:
+"4a460f82b3ccbe6e"	"Day 17"	"Week 3"	"了 Hoàn Thành"	""	"V + 了 = đã V xong"	"了 (le) có 2 chức năng khác nhau. Hôm nay học chức năng 1:
 
 了₁ = HOÀN THÀNH (đã làm xong — đặt SAU động từ)
 ---
@@ -488,7 +488,7 @@ Hoặc dùng 吗:
 `没 + V` = hành động chưa commit.
 
 `V + 了` = action committed ✅"	"`了` giống `commit()` trong Git — hành động ĐÃ HOÀN THÀNH và không thể undo."	""	"week3::day17::grammar::aspect"
-"Day 18"	"Week 3"	"给"	"Cho / Đưa cho"	"给 + Ai + Cái gì (Cho ai cái gì)"	"给 gěi = cho / đưa cho
+"167e93f15858c363"	"Day 18"	"Week 3"	"给"	"Cho / Đưa cho"	"给 + Ai + Cái gì (Cho ai cái gì)"	"给 gěi = cho / đưa cho
 
 给你。           Gěi nǐ.              Đưa cho bạn. / Cho bạn.
 给我一杯水。     Gěi wǒ yì bēi shuǐ.  Cho tôi 1 cốc nước.
@@ -507,7 +507,7 @@ Tôi viết cho bạn 1 lá thư.
 请给我一杯茶。      Qǐng gěi wǒ yì bēi chá.     Cho tôi 1 cốc trà.
 请给我菜单。        Qǐng gěi wǒ càidān.          Cho tôi menu.
 给我买单。          Gěi wǒ mǎidān.               Cho tôi tính tiền."	""	""	""	"week3::day18::grammar"
-"Day 18"	"Week 3"	"跟"	"Với / Và"	"A 跟 B + V (A làm V với B)"	"跟 gēn = với / cùng
+"8d1b0f2d9fa21ac4"	"Day 18"	"Week 3"	"跟"	"Với / Và"	"A 跟 B + V (A làm V với B)"	"跟 gēn = với / cùng
 
 我跟朋友去吃饭。      Wǒ gēn péngyou qù chī fàn.
 Tôi VỚI bạn đi ăn cơm.
@@ -531,7 +531,7 @@ Bạn đi VỚI ai?
 
 → Nhiều trường hợp dùng thay nhau được:
   我和他去 = 我跟他去 (cả 2 đều OK)"	""	"`和` ≈ `AND` operator (parallel). `跟` ≈ `WITH` modifier (together)."	""	"week3::day18::grammar"
-"Day 19"	"Week 3"	"因为...所以..."	"Vì...Nên..."	"因为 A，所以 B"	"因为 yīnwèi = vì (nguyên nhân)
+"492076300642c26e"	"Day 19"	"Week 3"	"因为...所以..."	"Vì...Nên..."	"因为 A，所以 B"	"因为 yīnwèi = vì (nguyên nhân)
 所以 suǒyǐ  = nên/cho nên (kết quả)
 
 因为下雨了，所以我没去上班。
@@ -569,7 +569,7 @@ Tại sao bạn không đến?
 
 → 因为我生病了。       Yīnwèi wǒ shēng bìng le.
    Vì tôi bị bệnh."	"⚠️ Có thể bỏ 1 phần (nói tự nhiên hơn)"	"`因为...所以...` = `if (cause) { result }`. `为什么` = debugger asking ""WHY did this happen?"""	""	"week3::day19::grammar"
-"Day 20"	"Week 3"	"虽然...但是..."	"Tuy...Nhưng..."	"虽然 A，但是 B"	"虽然 suīrán = tuy/mặc dù
+"85d64803ce5113e8"	"Day 20"	"Week 3"	"虽然...但是..."	"Tuy...Nhưng..."	"虽然 A，但是 B"	"虽然 suīrán = tuy/mặc dù
 但是 dànshì = nhưng mà (đã học D17)
 
 虽然很难，但是很有意思。
@@ -600,7 +600,7 @@ Vì tôi thích TQ, nên mỗi ngày học. Tuy khó, nhưng thú vị."	"⚠️
 `因为所以` = `if (rain) { don't_go(); }` — logic thuận
 
 `虽然但是` = `try { go(); } catch (rain) { still_go(); }` — exception handling!"	"> `因为所以` = `if (rain) { don't_go(); }` — logic thuận"	""	"week3::day20::grammar"
-"Day 22"	"Week 4"	"正在"	"Đang Làm Gì"	"正在 + V (+ 呢)"	"正在 zhèngzài = đang (chính xác tại thời điểm này)
+"a9a113e5ccf31918"	"Day 22"	"Week 4"	"正在"	"Đang Làm Gì"	"正在 + V (+ 呢)"	"正在 zhèngzài = đang (chính xác tại thời điểm này)
 在   zài      = đang (ngắn gọn hơn, dùng nhiều hơn)
 呢   ne       = trợ từ cuối câu, thêm sắc thái ""đang ~""
 
@@ -646,7 +646,7 @@ A: 我在家。你在做什么呢？   Wǒ zài jiā. Nǐ zài zuò shénme ne?
 
 B: 我正在上课呢，等一下。   Wǒ zhèngzài shàng kè ne, děng yíxià.
    Tôi đang học, chờ chút nhé."	"⚠️ KHÔNG dùng 不正在 — SAI!"	"`正在` giống `Thread.State.RUNNING` — process đang chạy ngay lúc này. `在` giống `isActive()` — check trạng thái. `呢` giống ` // currently running` — comment nhấn mạnh."	""	"week4::day22::grammar"
-"Day 23"	"Week 4"	"V + 过"	"Đã Từng"	"V + 过 (diễn tả trải nghiệm)"	"过 guò = qua → dùng sau động từ = ""đã từng (trải qua)""
+"1371293aa6a8d8f9"	"Day 23"	"Week 4"	"V + 过"	"Đã Từng"	"V + 过 (diễn tả trải nghiệm)"	"过 guò = qua → dùng sau động từ = ""đã từng (trải qua)""
 
 ⚠️ Phân biệt:
   V + 了 = đã V (hành động cụ thể, có thời gian)
@@ -691,7 +691,7 @@ Bạn đã từng thấy tuyết chưa?
 
 我没看过雪，因为越南没有雪。
 Tôi chưa thấy tuyết, vì Việt Nam không có tuyết."	"⚠️ Phân biệt:"	"`V + 了` = `commit` (hành động cụ thể, đã xong). `V + 过` = `git log` (check lịch sử: ""repo này từng có commit đó không?""). `没V过` = `notFound` trong log."	""	"week4::day23::grammar"
-"Day 24"	"Week 4"	"能/可以/会"	""	"Ba cách nói ""có thể"":"	"┌─────────────────────────────────────────────────────────┐
+"e97032ff149770a8"	"Day 24"	"Week 4"	"能/可以/会"	""	"Ba cách nói ""có thể"":"	"┌─────────────────────────────────────────────────────────┐
 │  能 néng     = có thể (KHẢ NĂNG thể chất/điều kiện)    │
 │  可以 kěyǐ   = có thể (ĐƯỢC PHÉP/cho phép)             │
 │  会 huì      = biết/sẽ (BIẾT LÀM/đã học được)          │
@@ -740,7 +740,7 @@ Anh ấy KHÔNG BIẾT nấu cơm.
 - `能` = `canPerform(""swimming"", currentHealth)` — check điều kiện runtime
 
 - `可以` = `isAllowed(""swimming"", location)` — check permission"	"> - `会` = `hasSkill(""swimming"")` — check kỹ năng"	""	"week4::day24::grammar"
-"Day 25"	"Week 4"	"把"	"Cấu Trúc Xử Lý"	"S + 把 + O + V + kết quả"	"把 bǎ = ""nắm lấy"" → dùng để nhấn mạnh XỬ LÝ đối tượng
+"5c3905c61e52d8e7"	"Day 25"	"Week 4"	"把"	"Cấu Trúc Xử Lý"	"S + 把 + O + V + kết quả"	"把 bǎ = ""nắm lấy"" → dùng để nhấn mạnh XỬ LÝ đối tượng
 
 Cấu trúc bình thường:  S + V + O
   我关了门。              Tôi đã đóng cửa.
@@ -779,7 +779,7 @@ Cấu trúc 把:            S + 把 + O + V + kết quả
 我把文件删了。         Tôi đã xóa file rồi.
 把窗口关了。           Đóng window lại.
 请把文档发给我。       Gửi docs cho tôi nhé."	"⚠️ Quy tắc quan trọng:"	"`把` = `pipe operator` hoặc `process()`: bạn ""nắm lấy"" object → xử lý → kết quả. `把门关上` = `door.close()`. `把代码提交了` = `code.commit()`. Luôn phải có method (kết quả), không thể chỉ có object!"	""	"week4::day25::grammar::special-structure"
-"Day 26"	"Week 4"	"被"	"Bị Động"	"S + 被 + (người gây) + V + kết quả"	"被 bèi = bị/được (câu bị động)
+"eeaf960e813d1bf1"	"Day 26"	"Week 4"	"被"	"Bị Động"	"S + 被 + (người gây) + V + kết quả"	"被 bèi = bị/được (câu bị động)
 
 Chủ động:  他吃了我的蛋糕。     Anh ấy ĐÃ ăn bánh tôi.
 Bị động:   我的蛋糕被他吃了。   Bánh tôi BỊ anh ấy ăn rồi.
@@ -806,7 +806,7 @@ Bug被修好了。        Bug đã được fix rồi.
 服务器被黑客攻击了。 Server bị hacker tấn công.
 数据被覆盖了。       Data bị ghi đè rồi.
 文件被误删了。       File bị xóa nhầm."	""	"`被` = `passive voice` = event listener: ""something was DONE TO this object"". `代码被删了` = `repo.on('delete', file)`. Object nhận hành động lên trước!"	""	"week4::day26::grammar::special-structure"
-"Day 26"	"Week 4"	"是...的"	"Nhấn Mạnh"	"S + 是 + (thời gian/cách/nơi) + V + 的"	"是...的 dùng để NHẤN MẠNH chi tiết (khi nào? ở đâu? bằng cách nào?)
+"93c4d133077bdb9f"	"Day 26"	"Week 4"	"是...的"	"Nhấn Mạnh"	"S + 是 + (thời gian/cách/nơi) + V + 的"	"是...的 dùng để NHẤN MẠNH chi tiết (khi nào? ở đâu? bằng cách nào?)
 → Hành động ĐÃ XẢY RA, bạn muốn hỏi/nói về CHI TIẾT
 
 ⚠️ Chỉ dùng cho hành động ĐÃ XẢY RA!
@@ -832,7 +832,7 @@ Bug被修好了。        Bug đã được fix rồi.
 
 他学了中文。            Anh ấy đã học TQ. (nói sự kiện)
 他是在北京学的中文。    Anh ấy học TQ Ở BẮC KINH. (nhấn mạnh: ở đâu)"	"⚠️ Chỉ dùng cho hành động ĐÃ XẢY RA!"	"`是...的` giống `console.assert()` — nhấn mạnh một assertion: ""Tôi khẳng định rằng thời gian là NĂM NGOÁI"". Hoặc giống `highlight` trong search result — highlight phần quan trọng."	""	"week4::day26::grammar"
-"Day 29"	"Week 5"	"除了...以外"	""	"除了 A 以外，也/还 B (ngoài A, còn B — THÊM)"	"除了 chúle = ngoài...ra
+"8991c7b46f36029c"	"Day 29"	"Week 5"	"除了...以外"	""	"除了 A 以外，也/还 B (ngoài A, còn B — THÊM)"	"除了 chúle = ngoài...ra
 以外 yǐwài = bên ngoài
 也/还 yě/hái = cũng/còn
 
@@ -861,7 +861,7 @@ Ngoài bug này ra, code đều không có vấn đề.
 
 都 = TRỪ (exclusion): trừ A ra, tất cả đều...
   除了A以外，都B。= Trừ A ra, TẤT CẢ đều B."	""	"`除了...也/还` = `array.concat()` — thêm phần tử. `除了...都` = `array.filter(x => x !== A)` — loại trừ phần tử."	""	"week5::day29::grammar::aspect"
-"Day 33"	"Week 5"	"不但...而且"	""	"不但 A 而且 B = Không chỉ A mà còn B"	"不但 búdàn = không chỉ     而且 érqiě = mà còn
+"9da2b7f602133e87"	"Day 33"	"Week 5"	"不但...而且"	""	"不但 A 而且 B = Không chỉ A mà còn B"	"不但 búdàn = không chỉ     而且 érqiě = mà còn
 
 不但...而且... luôn đi CÙNG HƯỚNG (tốt+tốt hoặc xấu+xấu)
 → Vế sau MẠNH hơn vế trước
@@ -886,7 +886,7 @@ Bug này không chỉ ảnh hưởng frontend, mà backend cũng có vấn đề
 
 → 不但而且 NHẤN MẠNH hơn (wow factor)
 → 除了以外 CHỈ LIỆT KÊ thêm"	""	"`除了...以外` = `list.push()` — thêm phần tử bình thường. `不但...而且` = `list.push()` + `highlight()` — thêm VÀ nhấn mạnh: ""ẤN TƯỢNG NHÉ!"""	""	"week5::day33::grammar"
-"Day 36"	"Week 6"	"越来越"	""	"越来越 + Adj/V = Ngày càng..."	"越来越 yuè lái yuè = ngày càng, mỗi lúc một
+"9b0ab055ec991fcd"	"Day 36"	"Week 6"	"越来越"	""	"越来越 + Adj/V = Ngày càng..."	"越来越 yuè lái yuè = ngày càng, mỗi lúc một
 
 我的中文越来越好了。
 Tiếng Trung của tôi ngày càng tốt.
@@ -906,7 +906,7 @@ Bug越来越难找了。      Bug ngày càng khó tìm.
 越学越有意思。         Càng học càng thú vị.
 越优化越快。           Càng optimize càng nhanh.
 代码越改越乱。         Code càng sửa càng loạn."	""	"`越来越` = `trending graph 📈📉`. Dùng khi mô tả xu hướng: performance 越来越好 = graph đi lên!"	""	"week6::day36::grammar"
-"Day 37"	"Week 6"	"一边...一边"	""	"一边 A 一边 B = Vừa A vừa B (2 việc cùng lúc)"	"一边 yìbiān...一边 yìbiān = vừa...vừa...
+"3b9046726706a845"	"Day 37"	"Week 6"	"一边...一边"	""	"一边 A 一边 B = Vừa A vừa B (2 việc cùng lúc)"	"一边 yìbiān...一边 yìbiān = vừa...vừa...
 
 我一边听音乐一边写代码。
 Tôi vừa nghe nhạc vừa viết code.
@@ -921,7 +921,7 @@ Anh ấy vừa đi làm vừa học TQ.
 一边开会一边记笔记。       Vừa họp vừa ghi chú.
 一边学技术一边做项目。     Vừa học tech vừa làm project.
 我们要一边开发一边测试。   Phải vừa dev vừa test."	""	"`一边...一边` = `Promise.all([taskA, taskB])` — chạy song song! Hoặc `multithreading` — 2 thread chạy cùng lúc."	""	"week6::day37::grammar"
-"Day 39"	"Week 6"	"对...来说"	""	"对 A 来说 = Đối với A mà nói"	"对我来说，学中文不难。
+"9474521e48a7b9eb"	"Day 39"	"Week 6"	"对...来说"	""	"对 A 来说 = Đối với A mà nói"	"对我来说，学中文不难。
 Đối với tôi, học TQ không khó.
 
 对新人来说，Vue比React简单。
@@ -929,7 +929,7 @@ Anh ấy vừa đi làm vừa học TQ.
 
 对程序员来说，英文很重要。
 Đối với dev, tiếng Anh rất quan trọng."	""	"`对...来说` = `context.setScope(user)` — set context/scope cho nhận xét."	""	"week6::day39::grammar"
-"Day 43"	"Week 7"	"只要...就"	""	"只要 A 就 B = Chỉ cần A thì B"	"只要 zhǐyào = chỉ cần     就 jiù = thì/liền
+"7f9167c312a9082f"	"Day 43"	"Week 7"	"只要...就"	""	"只要 A 就 B = Chỉ cần A thì B"	"只要 zhǐyào = chỉ cần     就 jiù = thì/liền
 
 只要你每天练习，中文就会进步。
 Chỉ cần bạn luyện mỗi ngày, TQ sẽ tiến bộ.
@@ -951,7 +951,7 @@ Chỉ cần biết foundation, framework dễ thôi.
 
 只要重启服务器，问题就解决了。
 Chỉ cần restart server, vấn đề giải quyết."	""	"`只要...就` = `if (condition) { result; }` — điều kiện ĐỦ! Một điều kiện → chắc chắn ra kết quả."	""	"week7::day43::grammar"
-"Day 45"	"Week 7"	"不管...都"	""	"不管 A 都 B = Bất kể A, đều B"	"不管 bùguǎn = bất kể/mặc kệ     都 dōu = đều
+"9c9aa090d0833dea"	"Day 45"	"Week 7"	"不管...都"	""	"不管 A 都 B = Bất kể A, đều B"	"不管 bùguǎn = bất kể/mặc kệ     都 dōu = đều
 
 不管多难，我都要学会。
 Bất kể khó thế nào, tôi đều phải học.

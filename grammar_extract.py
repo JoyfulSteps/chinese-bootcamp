@@ -21,6 +21,7 @@ import json
 import csv
 import os
 import sys
+import hashlib
 from pathlib import Path
 from dataclasses import dataclass, field, asdict
 from typing import Optional
@@ -48,6 +49,7 @@ SKIP_FILES = {
 @dataclass
 class GrammarCard:
     """Một thẻ Anki ngữ pháp."""
+    note_id: str           # MD5 hash để dedup trong Anki
     day: str               # "Day 5"
     week: str              # "Week 1"
     day_num: int           # 5
@@ -265,7 +267,13 @@ def extract_grammar_from_file(filepath: Path) -> list[GrammarCard]:
         if '被' in grammar_name or '把' in grammar_name:
             tags.append("special-structure")
 
+        # NoteID = MD5 của week+day+name để Anki update đúng thẻ
+        note_id = hashlib.md5(
+            f"{week_num}_{day_num}_{grammar_name}".encode('utf-8')
+        ).hexdigest()[:16]
+
         card = GrammarCard(
+            note_id=note_id,
             day=day_str,
             week=week_str,
             day_num=day_num,
@@ -316,20 +324,19 @@ def write_tsv(cards: list[GrammarCard], out_path: Path):
     Cột theo thứ tự fields của Note Type.
     """
     fieldnames = [
-        "Day", "Week", "GrammarName", "GrammarMeaning",
+        "NoteID", "Day", "Week", "GrammarName", "GrammarMeaning",
         "Pattern", "Examples", "Notes", "DevTip", "Exercise", "Tags"
     ]
 
     with open(out_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f, delimiter='\t', quoting=csv.QUOTE_ALL)
-        # Header comment (Anki bỏ qua dòng #)
         f.write("#separator:tab\n")
         f.write("#html:false\n")
         f.write(f"#columns:{','.join(fieldnames)}\n")
 
         for c in cards:
             writer.writerow([
-                c.day, c.week, c.grammar_name, c.grammar_meaning,
+                c.note_id, c.day, c.week, c.grammar_name, c.grammar_meaning,
                 c.pattern, c.examples, c.notes, c.dev_tip, c.exercise, c.tags
             ])
 

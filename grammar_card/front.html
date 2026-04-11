@@ -1,0 +1,97 @@
+<!-- ════ GRAMMAR CARD — MẶT TRƯỚC ════ -->
+<div class="gc-header">
+  <div class="gc-badges">
+    <span class="gc-badge-week">{{Week}}</span>
+    <span class="gc-badge-day">{{Day}}</span>
+  </div>
+  <span class="gc-tags-small">{{Tags}}</span>
+</div>
+
+<div class="gc-front-body">
+
+  <p class="gc-question-label">Đây là cấu trúc ngữ pháp nào?</p>
+
+  <!-- Ví dụ minh hoạ (hiện luôn) -->
+  <div class="gc-example-preview" id="exPreview"></div>
+
+  <!-- Input tự kiểm tra -->
+  <input class="gc-self-input" id="selfInput" type="text"
+         placeholder="Nhập pattern bạn nhớ được…"
+         autocomplete="off" spellcheck="false">
+
+  <!-- Gợi ý -->
+  <div class="gc-hint-row">
+    <button class="gc-btn-hint" id="btnMeaning" onclick="togMeaning()">💡 Nghĩa</button>
+    <button class="gc-btn-hint" id="btnPattern" onclick="togPattern()">📐 Công thức</button>
+  </div>
+  <div class="gc-hint-reveal" id="meaningReveal"></div>
+  <div class="gc-hint-reveal gc-reveal-green" id="patternReveal"></div>
+
+</div>
+
+<!-- Hidden data — cách an toàn nhất để truyền nội dung nhiều dòng vào JS -->
+<span id="d-meaning" style="display:none">{{GrammarMeaning}}</span>
+<span id="d-pattern" style="display:none">{{Pattern}}</span>
+<span id="d-examples" style="display:none">{{Examples}}</span>
+
+<script>
+(function(){
+  var meaning  = document.getElementById('d-meaning').textContent.trim();
+  var pattern  = document.getElementById('d-pattern').textContent.trim();
+  var examples = document.getElementById('d-examples').textContent.trim();
+
+  // Lấy câu ví dụ đầu tiên có chữ Hán để hiển thị
+  var firstZH = '';
+  var lines = examples.split('\n');
+  for (var i = 0; i < lines.length; i++) {
+    var l = lines[i].trim();
+    if (l && /[\u4e00-\u9fff]/.test(l)) { firstZH = l; break; }
+  }
+
+  var prev = document.getElementById('exPreview');
+  if (prev && firstZH) {
+    // Giữ phần Hán tự, ẩn phần sau tab/khoảng trắng kép
+    var parts = firstZH.split(/\s{2,}|\t/);
+    prev.textContent = parts[0] || firstZH;
+  } else if (prev) {
+    prev.style.display = 'none';
+  }
+
+  // Hint toggles
+  window.togMeaning = function(){
+    var el = document.getElementById('meaningReveal');
+    var btn = document.getElementById('btnMeaning');
+    if (el.style.display === 'block') {
+      el.style.display = 'none'; btn.textContent = '💡 Nghĩa';
+    } else {
+      el.textContent = meaning || '(xem mặt sau)';
+      el.style.display = 'block'; btn.textContent = '🔒 Ẩn';
+    }
+  };
+
+  window.togPattern = function(){
+    var el = document.getElementById('patternReveal');
+    var btn = document.getElementById('btnPattern');
+    if (el.style.display === 'block') {
+      el.style.display = 'none'; btn.textContent = '📐 Công thức';
+    } else {
+      el.textContent = pattern || '(xem mặt sau)';
+      el.style.display = 'block'; btn.textContent = '🔒 Ẩn';
+    }
+  };
+
+  // Focus input (desktop)
+  var inp = document.getElementById('selfInput');
+  var mob = /Android|iPhone|iPad/i.test(navigator.userAgent);
+  if (inp && !mob) setTimeout(function(){ inp.focus(); }, 100);
+
+  // Enter → lật thẻ
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') {
+      if (typeof pycmd !== 'undefined') pycmd('ans');
+    }
+    if (e.key === 'h') togMeaning();
+    if (e.key === 'p') togPattern();
+  });
+})();
+</script>

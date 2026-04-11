@@ -1,5 +1,6 @@
 [
   {
+    "note_id": "eed76b5022454b23",
     "day": "Day 3",
     "week": "Week 1",
     "day_num": 3,
@@ -15,6 +16,7 @@
     "tags": "week1::day3::grammar"
   },
   {
+    "note_id": "a29c32ed1a6a10b6",
     "day": "Day 4",
     "week": "Week 1",
     "day_num": 4,
@@ -30,6 +32,7 @@
     "tags": "week1::day4::grammar::comparison"
   },
   {
+    "note_id": "e76f4039e1a1c8ff",
     "day": "Day 5",
     "week": "Week 1",
     "day_num": 5,
@@ -45,6 +48,7 @@
     "tags": "week1::day5::grammar::question"
   },
   {
+    "note_id": "1553a7f1f2518266",
     "day": "Day 6",
     "week": "Week 1",
     "day_num": 6,
@@ -60,6 +64,7 @@
     "tags": "week1::day6::grammar::comparison"
   },
   {
+    "note_id": "d9d5dd05ed52eae7",
     "day": "Day 8",
     "week": "Week 2",
     "day_num": 8,
@@ -75,6 +80,7 @@
     "tags": "week2::day8::grammar"
   },
   {
+    "note_id": "401b8e743a7522a7",
     "day": "Day 9",
     "week": "Week 2",
     "day_num": 9,
@@ -90,6 +96,7 @@
     "tags": "week2::day9::grammar"
   },
   {
+    "note_id": "84f886c29bbdc385",
     "day": "Day 11",
     "week": "Week 2",
     "day_num": 11,
@@ -105,6 +112,7 @@
     "tags": "week2::day11::grammar"
   },
   {
+    "note_id": "02ae6cc2f41d3169",
     "day": "Day 12",
     "week": "Week 2",
     "day_num": 12,
@@ -120,6 +128,7 @@
     "tags": "week2::day12::grammar::comparison"
   },
   {
+    "note_id": "7e22d3c988c85be3",
     "day": "Day 12",
     "week": "Week 2",
     "day_num": 12,
@@ -135,6 +144,7 @@
     "tags": "week2::day12::grammar"
   },
   {
+    "note_id": "b04f192f788c4a68",
     "day": "Day 13",
     "week": "Week 2",
     "day_num": 13,
@@ -150,6 +160,7 @@
     "tags": "week2::day13::grammar"
   },
   {
+    "note_id": "44bdc26487b0cfd9",
     "day": "Day 13",
     "week": "Week 2",
     "day_num": 13,
@@ -165,6 +176,7 @@
     "tags": "week2::day13::grammar::aspect"
   },
   {
+    "note_id": "397ea930b21bdaa6",
     "day": "Day 15",
     "week": "Week 3",
     "day_num": 15,
@@ -180,6 +192,7 @@
     "tags": "week3::day15::grammar"
   },
   {
+    "note_id": "d61b3cea4d4baca1",
     "day": "Day 16",
     "week": "Week 3",
     "day_num": 16,
@@ -195,6 +208,7 @@
     "tags": "week3::day16::grammar"
   },
   {
+    "note_id": "4a460f82b3ccbe6e",
     "day": "Day 17",
     "week": "Week 3",
     "day_num": 17,
@@ -210,6 +224,7 @@
     "tags": "week3::day17::grammar::aspect"
   },
   {
+    "note_id": "167e93f15858c363",
     "day": "Day 18",
     "week": "Week 3",
     "day_num": 18,
@@ -225,6 +240,7 @@
     "tags": "week3::day18::grammar"
   },
   {
+    "note_id": "8d1b0f2d9fa21ac4",
     "day": "Day 18",
     "week": "Week 3",
     "day_num": 18,
@@ -240,6 +256,7 @@
     "tags": "week3::day18::grammar"
   },
   {
+    "note_id": "492076300642c26e",
     "day": "Day 19",
     "week": "Week 3",
     "day_num": 19,
@@ -255,6 +272,7 @@
     "tags": "week3::day19::grammar"
   },
   {
+    "note_id": "85d64803ce5113e8",
     "day": "Day 20",
     "week": "Week 3",
     "day_num": 20,
@@ -270,6 +288,7 @@
     "tags": "week3::day20::grammar"
   },
   {
+    "note_id": "a9a113e5ccf31918",
     "day": "Day 22",
     "week": "Week 4",
     "day_num": 22,
@@ -285,6 +304,7 @@
     "tags": "week4::day22::grammar"
   },
   {
+    "note_id": "1371293aa6a8d8f9",
     "day": "Day 23",
     "week": "Week 4",
     "day_num": 23,
@@ -300,6 +320,7 @@
     "tags": "week4::day23::grammar"
   },
   {
+    "note_id": "e97032ff149770a8",
     "day": "Day 24",
     "week": "Week 4",
     "day_num": 24,
@@ -315,6 +336,7 @@
     "tags": "week4::day24::grammar"
   },
   {
+    "note_id": "5c3905c61e52d8e7",
     "day": "Day 25",
     "week": "Week 4",
     "day_num": 25,
@@ -330,6 +352,7 @@
     "tags": "week4::day25::grammar::special-structure"
   },
   {
+    "note_id": "eeaf960e813d1bf1",
     "day": "Day 26",
     "week": "Week 4",
     "day_num": 26,
@@ -345,6 +368,7 @@
     "tags": "week4::day26::grammar::special-structure"
   },
   {
+    "note_id": "93c4d133077bdb9f",
     "day": "Day 26",
     "week": "Week 4",
     "day_num": 26,
@@ -360,6 +384,7 @@
     "tags": "week4::day26::grammar"
   },
   {
+    "note_id": "8991c7b46f36029c",
     "day": "Day 29",
     "week": "Week 5",
     "day_num": 29,
@@ -375,6 +400,7 @@
     "tags": "week5::day29::grammar::aspect"
   },
   {
+    "note_id": "9da2b7f602133e87",
     "day": "Day 33",
     "week": "Week 5",
     "day_num": 33,
@@ -390,6 +416,7 @@
     "tags": "week5::day33::grammar"
   },
   {
+    "note_id": "9b0ab055ec991fcd",
     "day": "Day 36",
     "week": "Week 6",
     "day_num": 36,
@@ -405,6 +432,7 @@
     "tags": "week6::day36::grammar"
   },
   {
+    "note_id": "3b9046726706a845",
     "day": "Day 37",
     "week": "Week 6",
     "day_num": 37,
@@ -420,6 +448,7 @@
     "tags": "week6::day37::grammar"
   },
   {
+    "note_id": "9474521e48a7b9eb",
     "day": "Day 39",
     "week": "Week 6",
     "day_num": 39,
@@ -435,6 +464,7 @@
     "tags": "week6::day39::grammar"
   },
   {
+    "note_id": "7f9167c312a9082f",
     "day": "Day 43",
     "week": "Week 7",
     "day_num": 43,
@@ -450,6 +480,7 @@
     "tags": "week7::day43::grammar"
   },
   {
+    "note_id": "9c9aa090d0833dea",
     "day": "Day 45",
     "week": "Week 7",
     "day_num": 45,

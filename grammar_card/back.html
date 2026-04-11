@@ -1,0 +1,171 @@
+<!-- ════ GRAMMAR CARD — MẶT SAU ════ -->
+<div class="gc-header">
+  <div class="gc-badges">
+    <span class="gc-badge-week">{{Week}}</span>
+    <span class="gc-badge-day">{{Day}}</span>
+  </div>
+  <span class="gc-tags-small">{{Tags}}</span>
+</div>
+
+<!-- ── Answer Hero ── -->
+<div class="gc-answer-hero">
+  <div class="gc-answer-name">{{GrammarName}}</div>
+  <div class="gc-answer-meaning" id="answerMeaning">{{GrammarMeaning}}</div>
+  <div class="gc-pattern-row">
+    <span class="gc-pattern-label">Pattern:</span>
+    <span class="gc-pattern-value" id="answerPattern">{{Pattern}}</span>
+  </div>
+</div>
+
+<!-- ── Ví dụ ── -->
+<div class="gc-section" id="secExamples">
+  <div class="gc-section-title">📖 Ví dụ</div>
+  <div class="gc-examples-body" id="examplesBody"></div>
+</div>
+
+<!-- ── Lưu ý ── -->
+<div class="gc-section" id="secNotes" style="display:none">
+  <div class="gc-section-title">⚠️ Lưu ý</div>
+  <div class="gc-notes-body" id="notesBody"></div>
+</div>
+
+<!-- ── Dev Tip ── -->
+<div class="gc-section gc-section-tip" id="secTip" style="display:none">
+  <div class="gc-section-title">💡 Dev Tip</div>
+  <div class="gc-tip-body" id="tipBody"></div>
+</div>
+
+<!-- ── Bài tập ── -->
+<div class="gc-section" id="secExercise" style="display:none">
+  <div class="gc-section-title">🏋️ Bài tập</div>
+  <div class="gc-exercise-body" id="exerciseBody"></div>
+</div>
+
+<!-- ── Source ── -->
+<div class="gc-source">📂 {{SourceFile}}</div>
+
+<!-- Hidden raw data -->
+<span id="d-examples"  style="display:none">{{Examples}}</span>
+<span id="d-notes"     style="display:none">{{Notes}}</span>
+<span id="d-tip"       style="display:none">{{DevTip}}</span>
+<span id="d-exercise"  style="display:none">{{Exercise}}</span>
+
+<script>
+(function(){
+
+  /* ── helpers ── */
+  function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function getText(id){ return (document.getElementById(id)||{}).textContent||''; }
+  function show(id){ var el=document.getElementById(id); if(el) el.style.display=''; }
+
+  var examples = getText('d-examples').trim();
+  var notes    = getText('d-notes').trim();
+  var tip      = getText('d-tip').trim();
+  var exercise = getText('d-exercise').trim();
+
+  /* ════ Render Examples ════ */
+  (function(){
+    var el = document.getElementById('examplesBody');
+    if (!el || !examples) return;
+
+    var groups = examples.split(/\n---\n|\n---$/m);
+    var html = '';
+
+    groups.forEach(function(group, gi){
+      if (!group.trim()) return;
+      var lines = group.trim().split('\n');
+      if (gi > 0) html += '<div class="gc-group-sep"></div>';
+
+      lines.forEach(function(line){
+        line = line.trim();
+        if (!line) return;
+        var hasCN   = /[\u4e00-\u9fff]/.test(line);
+        var isWarn  = /^[⚠️✅❌]/.test(line);
+
+        if (isWarn) {
+          var cls = line.startsWith('✅') ? 'gc-ex-ok' : line.startsWith('❌') ? 'gc-ex-bad' : 'gc-ex-warn';
+          html += '<div class="gc-ex-note ' + cls + '">' + esc(line) + '</div>';
+
+        } else if (hasCN) {
+          // Tách theo 2+ spaces hoặc tab: [ZH]  [Pinyin]  [Nghĩa]
+          var parts = line.split(/\t|\s{2,}/);
+          if (parts.length >= 2) {
+            html += '<div class="gc-ex-row">';
+            html += '<span class="gc-ex-zh">'  + esc(parts[0]) + '</span>';
+            for (var i = 1; i < parts.length; i++) {
+              var p = parts[i].trim();
+              if (!p) continue;
+              // Detect pinyin (no Chinese chars, has latin + tone marks)
+              var isPy = /^[a-zA-Zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ\s.,!?]+$/.test(p);
+              html += '<span class="' + (isPy ? 'gc-ex-py' : 'gc-ex-vn') + '">' + esc(p) + '</span>';
+            }
+            html += '</div>';
+          } else {
+            html += '<div class="gc-ex-single">' + esc(line) + '</div>';
+          }
+
+        } else {
+          html += '<div class="gc-ex-plain">' + esc(line) + '</div>';
+        }
+      });
+    });
+
+    el.innerHTML = html || '<div class="gc-empty">Không có ví dụ.</div>';
+  })();
+
+  /* ════ Render Notes ════ */
+  (function(){
+    if (!notes) return;
+    show('secNotes');
+    var el = document.getElementById('notesBody');
+    if (!el) return;
+    var html = '';
+    notes.split('\n').forEach(function(line){
+      line = line.trim();
+      if (!line) return;
+      var cls = 'gc-note-line';
+      if (/^⚠️/.test(line)) cls += ' gc-note-warn';
+      else if (/^✅/.test(line)) cls += ' gc-note-ok';
+      else if (/^❌/.test(line)) cls += ' gc-note-bad';
+      else if (/^\|/.test(line)) cls += ' gc-note-code';
+      html += '<div class="' + cls + '">' + esc(line) + '</div>';
+    });
+    el.innerHTML = html;
+  })();
+
+  /* ════ Render Dev Tip ════ */
+  (function(){
+    if (!tip) return;
+    show('secTip');
+    var el = document.getElementById('tipBody');
+    if (!el) return;
+    // Highlight `code` spans
+    el.innerHTML = esc(tip).replace(/`([^`]+)`/g,
+      '<code class="gc-inline-code">$1</code>');
+  })();
+
+  /* ════ Render Exercise ════ */
+  (function(){
+    if (!exercise) return;
+    show('secExercise');
+    var el = document.getElementById('exerciseBody');
+    if (!el) return;
+    // Strip ``` fences
+    var cleaned = exercise.replace(/^```[^\n]*\n?/, '').replace(/\n?```$/, '');
+    var html = '';
+    cleaned.split('\n').forEach(function(line){
+      line = line.trim();
+      if (!line) return;
+      if (line === '[Đáp án ẩn]' || line === '---') {
+        html += '<div class="gc-ans-note">💬 Đáp án: xem bài học gốc</div>';
+      } else if (/^\d+[.)]\s/.test(line)) {
+        html += '<div class="gc-ex-q">  ' + esc(line) + '</div>';
+      } else {
+        html += '<div class="gc-ex-plain">' + esc(line) + '</div>';
+      }
+    });
+    el.innerHTML = html;
+  })();
+
+})();
+</script>
